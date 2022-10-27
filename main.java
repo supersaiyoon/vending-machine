@@ -2,11 +2,15 @@ import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import java.util.Date;
 
@@ -49,7 +53,7 @@ class Main {
             Object obj = jsonParser.parse(reader);
 
             JSONObject vendingMachineList = (JSONObject) obj;
-            String prettyJson = vendingMachineList.toString(2);
+            String prettyJson = vendingMachineList.toJSONString();
             System.out.println(prettyJson);
             
             // Grab value from nested field in JSON
@@ -66,15 +70,17 @@ class Main {
 
             slot.put("productName","Pringles");
             productName = (String) slot.get("productName");
+            System.out.println(productName);
             
             // Write JSON file
             try (FileWriter file = new FileWriter("VendingMachineFile.json")) {
-                file.write(vendingMachineList.toString(2));
+                file.write(vendingMachineList.toString());
                 file.flush();
             }
             catch (IOException e) {
                 e.printStackTrace();
             }
+            
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -85,7 +91,5 @@ class Main {
         catch (ParseException e) {
             e.printStackTrace();
         }
-
-        //JSONObject testObj = new JSONObject();
     }
 }
