@@ -1,284 +1,249 @@
-{
-    "vendingMachineTest": {
-        "address": {
-            "streetName": "789 Main St",
-            "city": "Sacramento",
-            "country": "United States"
-        },
-        "slot": {
-            "A1": {
-                "productName": "Cheetos",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "A2": {
-                "productName": "M & M's",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "B1": {
-                "productName": "Oreos",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "B2": {
-                "productName": "Doritos",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            }
-        }
+{"vendingMachine_Sacramento": {
+  "address": {
+    "country": "United States",
+    "streetName": "123 Main St",
+    "city": "Sacramento"
+  },
+  "slot": {
+    "E1": {
+      "quantity": 15,
+      "price": 0,
+      "productName": "Doritos",
+      "expDate": "0101"
     },
-    "vendingMachineSacramento": {
-        "address": {
-            "streetName": "123 Main St",
-            "city": "Sacramento",
-            "country": "United States"
-        },
-        "slot": {
-            "A1": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "A2": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "A3": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "A4": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "A5": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "A6": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "A7": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "A8": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "B1": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "B2": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "B3": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "B4": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "B5": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "B6": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "B7": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "B8": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "C1": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "C2": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "C3": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "C4": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "C5": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "C6": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "C7": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "C8": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "D1": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "D2": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "D3": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "D4": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "D5": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "D6": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "D7": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "D8": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "E1": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "E2": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "E3": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "E4": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "E5": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "E6": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "E7": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            },
-            "E8": {
-                "productName": "",
-                "quantity": 0,
-                "price": 0,
-                "expDate": "0101"
-            }
-        }
+    "E2": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "C1": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "E3": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "C2": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "E4": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "A1": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "C3": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "E5": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "A2": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "C4": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "E6": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "A3": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "C5": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "E7": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "A4": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "C6": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "E8": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "A5": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "C7": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "A6": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "C8": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "A7": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "A8": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "D1": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "D2": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "B1": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "D3": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "B2": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "D4": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "B3": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "D5": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "B4": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "D6": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "B5": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "D7": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "B6": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "D8": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "B7": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
+    },
+    "B8": {
+      "quantity": 0,
+      "price": 0,
+      "productName": "",
+      "expDate": "0101"
     }
-}
+  }
+}}
