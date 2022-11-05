@@ -1,15 +1,17 @@
 {"vendingMachine_Sacramento": {
   "address": {
     "country": "United States",
-    "streetName": "123 Main St",
-    "city": "Sacramento"
+    "street": "123 Main St",
+    "city": "Sacramento",
+    "state": "CA",
+    "zipCode": "95814"
   },
   "slot": {
     "E1": {
       "quantity": 15,
-      "price": 0,
+      "price": 4.99,
       "productName": "Doritos",
-      "expDate": "0101"
+      "expDate": "1107"
     },
     "E2": {
       "quantity": 0,

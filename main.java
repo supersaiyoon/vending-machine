@@ -36,12 +36,12 @@ class Error {
 }
 
 class VendingMachineFile {
-    public String slotNum;       // Must store value within class for functions to work.
-    public JSONObject tokenObj;  // Access nested fields through this.
+    public String machineName;   // There will be multiple vending machines in the JSON file.
+    public JSONObject tokenObj;  // Access nested JSON objects through this.
 
     public VendingMachineFile() {
         String fileName = "VendingMachineFile.json";
-        InputStream is = Main.class.getResourceAsStream(fileName);
+        InputStream is = VendingMachineFile.class.getResourceAsStream(fileName);
 
         if (is == null) {
             throw new NullPointerException("Cannot find JSON file.");
@@ -51,38 +51,57 @@ class VendingMachineFile {
         tokenObj = new JSONObject(tokener);
     }
 
-    void setSlot(String slotNum) {
-        this.slotNum = slotNum;
+    void setMachineName(String machineName) {  // Need to do this before using any methods.
+        this.machineName = machineName;
     }
-
-    public static String getAddress(JSONObject tokenObj) {
+    
+    String getAddress() {
         // Return full address.
         // streetName, city, country
-        String address = "";
+        JSONObject vendingMachineObj = tokenObj.getJSONObject(machineName);
+        JSONObject addressObj = vendingMachineObj.getJSONObject("address");
+
+        String street = addressObj.getString("street");
+        String city = addressObj.getString("city");
+        String state = addressObj.getString("state");
+        String zipCode = addressObj.getString("zipCode");
+
+        String address = String.join(", ", street, city, state);
+        address = String.join(" ", address, zipCode);  // Joined ZIP code separately to not include comma.
     
         return address;
     }
 
-    int getSlotQty() {
-        JSONObject vendingMachineObj = tokenObj.getJSONObject("vendingMachine_Sacramento");
+    int getSlotQty(String slotNum) {
+        JSONObject vendingMachineObj = tokenObj.getJSONObject(machineName);
         JSONObject slotObj = vendingMachineObj.getJSONObject("slot");
         JSONObject slotName = slotObj.getJSONObject(slotNum);
 
         return slotName.getInt("quantity");
     }
 
-    double getSlotPrice() {
-        double price = 0;
+    double getSlotPrice(String slotNum) {
+        JSONObject vendingMachineObj = tokenObj.getJSONObject(machineName);
+        JSONObject slotObj = vendingMachineObj.getJSONObject("slot");
+        JSONObject slotName = slotObj.getJSONObject(slotNum);
 
-        return price;
+        return slotName.getDouble("price");
     }
 
-    String getSlotProductName() {
+    String getSlotProductName(String slotNum) {
+        JSONObject vendingMachineObj = tokenObj.getJSONObject(machineName);
+        JSONObject slotObj = vendingMachineObj.getJSONObject("slot");
+        JSONObject slotName = slotObj.getJSONObject(slotNum);
 
+        return slotName.getString("productName");
     }
 
-    String getExpDate() {
+    String getExpDate(String slotNum) {
+        JSONObject vendingMachineObj = tokenObj.getJSONObject(machineName);
+        JSONObject slotObj = vendingMachineObj.getJSONObject("slot");
+        JSONObject slotName = slotObj.getJSONObject(slotNum);
 
+        return slotName.getString("expDate");
     }
 }
 
@@ -90,14 +109,21 @@ class VendingMachineFile {
 class Main {
     public static void main(String args[]) {
 
-        VendingMachineFile testFile = new VendingMachineFile();
-        
-        System.out.println(testFile.getSlotQty());
+        VendingMachineFile vendingMachine = new VendingMachineFile();
+
+        // Must set vending machine name before using methods.
+        // This was added so that different vending machines can be selected.
+        vendingMachine.setMachineName("vendingMachine_Sacramento");
+
+        System.out.println(vendingMachine.getAddress());
+
+        System.out.println(vendingMachine.getSlotQty("E1"));
+
+        System.out.println(vendingMachine.getSlotPrice("E1"));
+
+        System.out.println(vendingMachine.getSlotProductName("E1"));
        
-
-        // Leap frog to get to the specific nested level you want.
-        // These should become functions.
-
+        System.out.println(vendingMachine.getExpDate("E1"));
 
         //System.out.println(addressObj.getString("streetName"));
 
