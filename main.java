@@ -20,7 +20,7 @@ import java.util.Date;
 
 class VendingMachine {
     String location;
-    
+
     void processOrder() {}
     void addItem() {}
     void removeItem() {}
@@ -37,13 +37,61 @@ class Customer {
 }
 
 class Restocker {
-    
+
 }
 
 // Similar to VendingMachineFile class. Getter and setter functions.
 // Write to SaleData.json after each transaction. Verify there are no errors.
 class SaleDataFile {
-    
+
+    public String dateSold;   // Multiple dates will need to be accessed
+    public JSONObject tokenObj;  // Access nested JSON objects through this.
+
+    public SaleDataFile() {
+        String fileName = "SaleData.json";
+        InputStream is = SaleDataFile.class.getResourceAsStream(fileName);
+
+        if (is == null) {
+            throw new NullPointerException("Cannot find JSON file.");
+        }
+
+        JSONTokener tokener = new JSONTokener(is);
+        tokenObj = new JSONObject(tokener);
+    }
+
+    void setSaleDate(String saleDate) {  // Need to do this before using any methods.
+        this.dateSold = saleDate;
+        System.out.println(dateSold);
+
+    }
+
+    String getProductNameSold() {
+        //Get product name sold on particular date
+
+        JSONObject saleDataObj = tokenObj.getJSONObject(dateSold);
+
+        String productName = saleDataObj.getString("productName");
+        return productName;
+    }
+
+    Double getPriceSold() {
+        //Get product price sold on particular date/time
+
+        JSONObject saleDataObj = tokenObj.getJSONObject(dateSold);
+
+        Double priceSold = saleDataObj.getDouble("price");
+        return priceSold;
+    }
+
+    String getSlotSold() {
+        //Get product slot that was sold on particular date/time
+
+        JSONObject saleDataObj = tokenObj.getJSONObject(dateSold);
+
+        String slotSold = saleDataObj.getString("slot");
+        return slotSold;
+    }
+
 }
 
 class Error {
@@ -69,7 +117,7 @@ class VendingMachineFile {
     void setMachineName(String machineName) {  // Need to do this before using any methods.
         this.machineName = machineName;
     }
-    
+
     String getAddress() {
         // Return full address.
         // streetName, city, country
@@ -83,7 +131,7 @@ class VendingMachineFile {
 
         String address = String.join(", ", street, city, state);
         address = String.join(" ", address, zipCode);  // Joined ZIP code separately to not include comma.
-    
+
         return address;
     }
 
@@ -141,9 +189,31 @@ class Main {
         System.out.println(vendingMachine.getSlotPrice("E1"));
 
         System.out.println(vendingMachine.getSlotProductName("E1"));
-       
+
         System.out.println(vendingMachine.getExpDate("E1"));
         new KeyPadGUI();
+        
+        //Buffer for SaleData
+        System.out.println();
+
+
+        //Testing SaleData JSON
+        SaleDataFile saleData = new SaleDataFile();
+        //Set date of sale for specific data
+        saleData.setSaleDate("11.14.22.10.31.22");
+
+        System.out.println("Sale date set.");
+
+        System.out.println(saleData.getProductNameSold());
+        System.out.println("Product name retrieved.");
+
+        System.out.println(saleData.getPriceSold());
+        System.out.println("Product price retrieved.");
+
+        System.out.println(saleData.getSlotSold());
+        System.out.println("Product location retrieved.");
+
+
         //System.out.println(addressObj.getString("streetName"));
 
         //addressObj.put("streetName", "789 Main St");
