@@ -1,3 +1,5 @@
+import GUI.*;
+
 import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,8 +11,11 @@ import java.io.InputStream;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.text.NumberFormatter;
 
 import java.util.Date;
+
+
 
 
 class VendingMachine {
@@ -164,8 +169,12 @@ class VendingMachineFile {
 }
 
 
+
+
+
+
 class Main {
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception{
 
         VendingMachineFile vendingMachine = new VendingMachineFile();
 
@@ -182,6 +191,8 @@ class Main {
         System.out.println(vendingMachine.getSlotProductName("E1"));
 
         System.out.println(vendingMachine.getExpDate("E1"));
+        new KeyPadGUI();
+        
         //Buffer for SaleData
         System.out.println();
 
