@@ -220,7 +220,7 @@ class Main {
 
         // Include the below in setter functions.
         /*try (FileWriter file = new FileWriter("VendingMachineFile.json")) {
-            file.write(tokenObj.toString(2));
+            file.write(tokenObj.toString(4));
             file.flush();
         }
         catch (IOException e) {
