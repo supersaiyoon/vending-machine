@@ -99,10 +99,13 @@ class Error {
 }
 
 class VendingMachineFile {
-    public String machineName;   // There will be multiple vending machines in the JSON file.
-    public JSONObject tokenObj;  // Access nested JSON objects through this.
+    public String fileNameJSON = "VendingMachineFile.json";    // Just in case we need to change the file name.
+    public JSONObject tokenObj;             // Initializing here so writeFile() has access to highest level JSON object.
+    public JSONObject vendingMachineObj;    // Used by constructor only. Do not touch.
+    public JSONObject addressObj;           // Use methods on this to modify vending machine address info.
+    public JSONObject slotObj;              // Use methods on this to modify vending machine slot.
 
-    public VendingMachineFile() {
+    public VendingMachineFile(String vendingMachineName) {
         String fileName = "VendingMachineFile.json";
         InputStream is = VendingMachineFile.class.getResourceAsStream(fileName);
 
@@ -112,18 +115,25 @@ class VendingMachineFile {
 
         JSONTokener tokener = new JSONTokener(is);
         tokenObj = new JSONObject(tokener);
+        vendingMachineObj = tokenObj.getJSONObject(vendingMachineName);
+        addressObj = vendingMachineObj.getJSONObject("address");
+        slotObj = vendingMachineObj.getJSONObject("slot");
     }
 
-    void setMachineName(String machineName) {  // Need to do this before using any methods.
-        this.machineName = machineName;
+    // Call this method every time you replace any values in VendingMachineFile.json.
+    void writeFile() {
+        try (FileWriter file = new FileWriter(fileNameJSON)) {
+            file.write(tokenObj.toString(4));  // Integer is size of indent in JSON file.
+            file.flush();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     String getAddress() {
         // Return full address.
         // streetName, city, country
-        JSONObject vendingMachineObj = tokenObj.getJSONObject(machineName);
-        JSONObject addressObj = vendingMachineObj.getJSONObject("address");
-
         String street = addressObj.getString("street");
         String city = addressObj.getString("city");
         String state = addressObj.getString("state");
@@ -135,63 +145,118 @@ class VendingMachineFile {
         return address;
     }
 
-    int getSlotQty(String slotNum) {
-        JSONObject vendingMachineObj = tokenObj.getJSONObject(machineName);
-        JSONObject slotObj = vendingMachineObj.getJSONObject("slot");
-        JSONObject slotName = slotObj.getJSONObject(slotNum);
+    void setAddressCountry(String country) {        
+        addressObj.put("country", country);
+        writeFile();
+    }
 
-        return slotName.getInt("quantity");
+    void setAddressStreet(String street) {        
+        addressObj.put("street", street);
+        writeFile();
+    }
+
+    void setAddressCity(String city) {
+        addressObj.put("city", city);
+        writeFile();
+    }
+
+    void setAddressState(String state) {        
+        addressObj.put("state", state.toUpperCase());
+        writeFile();
+    }
+
+    void setAddressZipCode(String zipCode) {        
+        addressObj.put("zipCode", zipCode);
+        writeFile();
+    }
+
+    int getSlotQty(String slotNum) {
+        JSONObject slotNumObj = slotObj.getJSONObject(slotNum);
+
+        return slotNumObj.getInt("quantity");
+    }
+
+    void setSlotQty(String slotNum, int quantity) {
+        JSONObject slotNumObj = slotObj.getJSONObject(slotNum);
+        
+        slotNumObj.put("quantity", quantity);
+        writeFile();
     }
 
     double getSlotPrice(String slotNum) {
-        JSONObject vendingMachineObj = tokenObj.getJSONObject(machineName);
-        JSONObject slotObj = vendingMachineObj.getJSONObject("slot");
-        JSONObject slotName = slotObj.getJSONObject(slotNum);
+        JSONObject slotNumObj = slotObj.getJSONObject(slotNum);
 
-        return slotName.getDouble("price");
+        return slotNumObj.getDouble("price");
+    }
+
+    void setSlotPrice(String slotNum, double price) {
+        JSONObject slotNumObj = slotObj.getJSONObject(slotNum);
+
+        slotNumObj.put("price", price);
+        writeFile();
     }
 
     String getSlotProductName(String slotNum) {
-        JSONObject vendingMachineObj = tokenObj.getJSONObject(machineName);
-        JSONObject slotObj = vendingMachineObj.getJSONObject("slot");
-        JSONObject slotName = slotObj.getJSONObject(slotNum);
+        JSONObject slotNumObj = slotObj.getJSONObject(slotNum);
 
-        return slotName.getString("productName");
+        return slotNumObj.getString("productName");
     }
 
-    String getExpDate(String slotNum) {
-        JSONObject vendingMachineObj = tokenObj.getJSONObject(machineName);
-        JSONObject slotObj = vendingMachineObj.getJSONObject("slot");
-        JSONObject slotName = slotObj.getJSONObject(slotNum);
+    void setSlotProductName(String slotNum, String productName) {
+        JSONObject slotNumObj = slotObj.getJSONObject(slotNum);
 
-        return slotName.getString("expDate");
+        slotNumObj.put("productName", productName);
+        writeFile();
+    }
+
+    String getSlotExpDate(String slotNum) {
+        JSONObject slotNumObj = slotObj.getJSONObject(slotNum);
+
+        return slotNumObj.getString("expDate");
+    }
+
+    void setSlotExpDate(String slotNum, String expDate) {
+        JSONObject slotNumObj = slotObj.getJSONObject(slotNum);
+
+        slotNumObj.put("expDate", expDate);
+        writeFile();
     }
 }
-
-
-
-
 
 
 class Main {
     public static void main(String args[]) throws Exception{
 
-        VendingMachineFile vendingMachine = new VendingMachineFile();
+        VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
 
-        // Must set vending machine name before using methods.
-        // This was added so that different vending machines can be selected.
-        vendingMachine.setMachineName("vendingMachine_Sacramento");
+        System.out.println("\nAddress: " + vendingMachineSacramento.getAddress());
+        System.out.println("Product Name: " + vendingMachineSacramento.getSlotProductName("E1"));
+        System.out.println("Price: $" + vendingMachineSacramento.getSlotPrice("E1"));
+        System.out.println("Quantity: " + vendingMachineSacramento.getSlotQty("E1"));
+        System.out.println("Exp. Date: " + vendingMachineSacramento.getSlotExpDate("E1"));
 
-        System.out.println(vendingMachine.getAddress());
 
-        System.out.println(vendingMachine.getSlotQty("E1"));
+        System.out.println("\nData AFTER writing to file:");
+        // Testing address setter functions.
+        vendingMachineSacramento.setAddressStreet("23 Bulls Ln");
+        vendingMachineSacramento.setAddressCity("Chicago");
+        vendingMachineSacramento.setAddressState("IL");
+        vendingMachineSacramento.setAddressZipCode("90210");
 
-        System.out.println(vendingMachine.getSlotPrice("E1"));
+        // Testing specific slot setter functions.
+        vendingMachineSacramento.setSlotProductName("E1", "Chips Ahoy Cookies");
+        vendingMachineSacramento.setSlotPrice("E1", 4.99);
+        vendingMachineSacramento.setSlotQty("E1", 8);
+        vendingMachineSacramento.setSlotExpDate("E1", "0214");
 
-        System.out.println(vendingMachine.getSlotProductName("E1"));
-
-        System.out.println(vendingMachine.getExpDate("E1"));
-        new KeyPadGUI();
+        // Printing after changing values in VendingMachineFile.json.
+        System.out.println("Address: " + vendingMachineSacramento.getAddress());
+        System.out.println("Product Name: " + vendingMachineSacramento.getSlotProductName("E1"));
+        System.out.println("Price: $" + vendingMachineSacramento.getSlotPrice("E1"));
+        System.out.println("Quantity: " + vendingMachineSacramento.getSlotQty("E1"));
+        System.out.println("Exp. Date: " + vendingMachineSacramento.getSlotExpDate("E1"));
+        
+        // new KeyPadGUI();
         
         //Buffer for SaleData
         System.out.println();
@@ -212,19 +277,5 @@ class Main {
 
         System.out.println(saleData.getSlotSold());
         System.out.println("Product location retrieved.");
-
-
-        //System.out.println(addressObj.getString("streetName"));
-
-        //addressObj.put("streetName", "789 Main St");
-
-        // Include the below in setter functions.
-        /*try (FileWriter file = new FileWriter("VendingMachineFile.json")) {
-            file.write(tokenObj.toString(4));
-            file.flush();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }*/
     }
 }
