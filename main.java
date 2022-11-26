@@ -14,9 +14,10 @@ import javax.swing.*;
 import javax.swing.text.NumberFormatter;
 
 import java.util.Date;
-
-
-
+import java.util.Calendar;
+import java.util.TimeZone;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 
 class VendingMachine {
     String location;
@@ -34,6 +35,8 @@ class VendingMachine {
 
 class Customer {
 
+
+
 }
 
 class Restocker {
@@ -46,6 +49,7 @@ class SaleDataFile {
 
     public String dateSold;   // Multiple dates will need to be accessed
     public JSONObject tokenObj;  // Access nested JSON objects through this.
+    public String fileNameJSON = "SaleData.json";
 
     public SaleDataFile() {
         String fileName = "SaleData.json";
@@ -57,6 +61,16 @@ class SaleDataFile {
 
         JSONTokener tokener = new JSONTokener(is);
         tokenObj = new JSONObject(tokener);
+    }
+
+    void writeFile() {
+        try (FileWriter file = new FileWriter(fileNameJSON)) {
+            file.write(tokenObj.toString(2));  // Integer is size of indent in JSON file.
+            file.flush();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     void setSaleDate(String saleDate) {  // Need to do this before using any methods.
@@ -74,6 +88,14 @@ class SaleDataFile {
         return productName;
     }
 
+    void setProductNameSold(String productName) {
+
+        JSONObject saleDataObj = tokenObj.getJSONObject(dateSold);
+
+        saleDataObj.put("productName", productName);
+        writeFile();
+    }
+
     Double getPriceSold() {
         //Get product price sold on particular date/time
 
@@ -83,6 +105,15 @@ class SaleDataFile {
         return priceSold;
     }
 
+    void setPriceSold(double priceSold) {
+
+        JSONObject saleDataObj = tokenObj.getJSONObject(dateSold);
+
+        saleDataObj.put("price", priceSold);
+        writeFile();
+    }
+
+
     String getSlotSold() {
         //Get product slot that was sold on particular date/time
 
@@ -90,6 +121,14 @@ class SaleDataFile {
 
         String slotSold = saleDataObj.getString("slot");
         return slotSold;
+    }
+
+    void setSlotSold(String slotSold) {
+
+        JSONObject saleDataObj = tokenObj.getJSONObject(dateSold);
+
+        saleDataObj.put("slot", slotSold);
+        writeFile();
     }
 
 }
@@ -145,12 +184,12 @@ class VendingMachineFile {
         return address;
     }
 
-    void setAddressCountry(String country) {        
+    void setAddressCountry(String country) {
         addressObj.put("country", country);
         writeFile();
     }
 
-    void setAddressStreet(String street) {        
+    void setAddressStreet(String street) {
         addressObj.put("street", street);
         writeFile();
     }
@@ -160,12 +199,12 @@ class VendingMachineFile {
         writeFile();
     }
 
-    void setAddressState(String state) {        
+    void setAddressState(String state) {
         addressObj.put("state", state.toUpperCase());
         writeFile();
     }
 
-    void setAddressZipCode(String zipCode) {        
+    void setAddressZipCode(String zipCode) {
         addressObj.put("zipCode", zipCode);
         writeFile();
     }
@@ -178,7 +217,7 @@ class VendingMachineFile {
 
     void setSlotQty(String slotNum, int quantity) {
         JSONObject slotNumObj = slotObj.getJSONObject(slotNum);
-        
+
         slotNumObj.put("quantity", quantity);
         writeFile();
     }
@@ -255,9 +294,9 @@ class Main {
         System.out.println("Price: $" + vendingMachineSacramento.getSlotPrice("E1"));
         System.out.println("Quantity: " + vendingMachineSacramento.getSlotQty("E1"));
         System.out.println("Exp. Date: " + vendingMachineSacramento.getSlotExpDate("E1"));
-        
+
         // new KeyPadGUI();
-        
+
         //Buffer for SaleData
         System.out.println();
 
@@ -265,17 +304,26 @@ class Main {
         //Testing SaleData JSON
         SaleDataFile saleData = new SaleDataFile();
         //Set date of sale for specific data
+        System.out.println("Setting Sale Date: ");
         saleData.setSaleDate("11.14.22.10.31.22");
+        System.out.println("Sale Date set.\n");
 
-        System.out.println("Sale date set.");
+        //Testing get functions
+        System.out.println("Product name retrieved: " + saleData.getProductNameSold());
+        System.out.println("Product price retrieved: " + saleData.getPriceSold());
+        System.out.println("Product location retrieved: " + saleData.getSlotSold()+"\n");
 
-        System.out.println(saleData.getProductNameSold());
-        System.out.println("Product name retrieved.");
+        //Testing set functions
+        System.out.println("Changing data, values after set functions: ");
+        saleData.setProductNameSold("Cheetos");
+        saleData.setPriceSold(4.99);
+        saleData.setSlotSold("E8");
 
-        System.out.println(saleData.getPriceSold());
-        System.out.println("Product price retrieved.");
+        System.out.println("New product name: " + saleData.getProductNameSold());
+        System.out.println("New price: "  + saleData.getPriceSold());
+        System.out.println("New slot: " + saleData.getSlotSold());
 
-        System.out.println(saleData.getSlotSold());
-        System.out.println("Product location retrieved.");
+
+
     }
 }
