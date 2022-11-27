@@ -16,25 +16,206 @@ import javax.swing.text.NumberFormatter;
 import java.util.Date;
 import java.util.Calendar;
 import java.util.TimeZone;
-import java.text.SimpleDateFormat;
-import java.text.DateFormat;
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+
 
 class VendingMachine {
+
+
+
+    //for using functions in other classes
+    VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
+
     String location;
 
     void processOrder() {}
-    void addItem() {}
-    void removeItem() {}
+
+    //add item to desired slot using specified parameters
+    public void addItem(String slotNumber, int slotQty, double slotPrice, String productName, String expDate) {
+
+        //set quantity to desired int number
+        vendingMachineSacramento.setSlotQty(slotNumber,slotQty);
+        //set price to desired double number
+        vendingMachineSacramento.setSlotPrice(slotNumber, slotPrice);
+        //set product name to desired string name
+        vendingMachineSacramento.setSlotProductName(slotNumber, productName);
+        //set expiration date to desired string mmYY
+        vendingMachineSacramento.setSlotExpDate(slotNumber, expDate);
+
+
+    }
+
+    //remove item from slot entirely
+    public void removeItem(String slotNumber) {
+
+        //set quantity to 0
+        vendingMachineSacramento.setSlotQty(slotNumber,0);
+        //set price to 0.00
+        vendingMachineSacramento.setSlotPrice(slotNumber, 0.00);
+        //set product name to blank string
+        vendingMachineSacramento.setSlotProductName(slotNumber, " ");
+        //set expiration date to blank string
+        vendingMachineSacramento.setSlotExpDate(slotNumber, " ");
+
+    }
     void changePrice() {}
     void getSaleData() {}
-    void verifyExpiration() {}
+
+    //returns true if item in specified slot is expired, false if it is not
+    public boolean verifyExpiration(String slotNumber) {
+
+        //Set up calendar month and year to check against inventory
+        Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
+
+        int currentMonth = localCalendar.get(Calendar.MONTH)+1;
+        int currentYear = localCalendar.get(Calendar.YEAR) % 100;
+
+        String slotExp = vendingMachineSacramento.getSlotExpDate(slotNumber);
+        String slotMonth = slotExp.substring( 0, (slotExp.length()/2));
+        String slotYear= slotExp.substring( (slotExp.length()/2));
+
+        //check if item in slot is expired
+        boolean isExpired = false;
+
+        if ( Integer.parseInt(slotYear) < currentYear){
+            isExpired = true;
+        }
+        else if(Integer.parseInt(slotMonth) < currentMonth && Integer.parseInt(slotYear) == currentYear){
+            isExpired = true;
+        }
+
+        return isExpired;
+
+    }
+
     void verifyRecall() {}
-    void verifyStock() {}
+
+    //checks if item in slot is fully stocked (15) and returns units needed, and if nothing needs to be added returns 0
+    public int verifyStock(String slotNumber) {
+        int stockNeeded = 15;
+        int stockQty = vendingMachineSacramento.getSlotQty(slotNumber);
+
+        if (stockQty < 1) {
+
+            return stockNeeded;
+
+        } else if (stockQty < 15 && stockQty > 1) {
+
+            stockNeeded = stockNeeded - stockQty;
+            return stockNeeded;
+
+        } else
+            stockNeeded = 0;
+        return stockNeeded;
+    }
 }
 
 
 class Customer {
 
+    //for using functions in other classes
+    VendingMachine classObj = new VendingMachine();
+    VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
+
+    public double customerOrder(String slotNumber, double moneyInsert){
+
+        //for returning proper rounded change format #.## instead of massive doubles
+        DecimalFormat df = new DecimalFormat("#.##");
+
+        int newItemQty = vendingMachineSacramento.getSlotQty(slotNumber);
+        double itemPrice = vendingMachineSacramento.getSlotPrice(slotNumber);
+        double moneyDifference = itemPrice - moneyInsert;
+
+
+        //while expiration date has not passed
+        if (!classObj.verifyExpiration(slotNumber) && newItemQty > 0){
+
+            System.out.println("Item costs $" + itemPrice +" please insert money.");
+
+            while ( itemPrice > moneyInsert) {
+
+                System.out.println("Not enough money inserted, please insert at least $" + df.format(moneyDifference) + " more.");
+                moneyInsert = additionalChange(moneyInsert);
+                moneyDifference = itemPrice - moneyInsert;
+
+            }
+
+            vendingMachineSacramento.setSlotQty(slotNumber, newItemQty-1);
+            double changeReturn = moneyInsert - itemPrice;
+            System.out.println("Thank you, your change today is: $" + df.format(changeReturn));
+            return changeReturn;
+
+            /*//attempting to print proper change increments, wasn't working so will try later
+            StringBuilder change = new StringBuilder();
+
+            while (changeReturn > 0.01f) {
+                if (changeReturn >= 100.0f) {
+                    change.append("ONE HUNDRED");
+                    changeReturn -= 100.0f;
+                } else if (changeReturn >= 50.0f) {
+                    change.append("FIFTY");
+                    changeReturn -= 50.0f;
+                } else if (changeReturn >= 20.0f) {
+                    change.append("TWENTY");
+                    changeReturn -= 20.0f;
+                } else if (changeReturn >= 10.0f) {
+                    change.append("TEN");
+                    changeReturn -= 10.0f;
+                } else if (changeReturn >= 5.0f) {
+                    change.append("FIVE");
+                    changeReturn -= 5.0f;
+                } else if (changeReturn >= 2.0f) {
+                    change.append("TWO");
+                    changeReturn -= 2.0f;
+                } else if (changeReturn >= 1.0f) {
+                    change.append("ONE");
+                    changeReturn -= 1.0f;
+                } else if (changeReturn >= 0.25f) {
+                    change.append("QUARTER");
+                    changeReturn -= 0.25f;
+                } else if (changeReturn >= 0.1f) {
+                    change.append("DIME");
+                    changeReturn -= 0.1f;
+                } else if (changeReturn >= 0.05f) {
+                    change.append("NICKEL");
+                    changeReturn -= 0.05f;
+                } else {
+                    change.append("PENNY");
+                    changeReturn -= 0.01f;
+                }
+                change.append(",");
+            }
+            change.setLength(change.length() - 1);
+
+            return change.toString();*/
+
+        }
+
+        //if product is expired or no quantity
+        else  {
+
+            System.out.println("ERROR: Item is unavailable, please choose a different item.");
+            return -1.00;
+
+        }
+
+    }
+
+    public double additionalChange(double money){
+
+        Scanner getMoney = new Scanner(System.in);
+        System.out.println("Enter additional change: ");
+
+        double setMoney = Double.parseDouble(getMoney.nextLine());
+        double newChange;
+
+        newChange = setMoney+money;
+        return newChange;
+
+    }
 
 
 }
@@ -139,7 +320,7 @@ class Error {
 
 class VendingMachineFile {
     public String fileNameJSON = "VendingMachineFile.json";    // Just in case we need to change the file name.
-    public JSONObject tokenObj;             // Initializing here so writeFile() has access to highest level JSON object.
+    public JSONObject tokenObj;             // Initializing here so writeFile() has access to the highest level JSON object.
     public JSONObject vendingMachineObj;    // Used by constructor only. Do not touch.
     public JSONObject addressObj;           // Use methods on this to modify vending machine address info.
     public JSONObject slotObj;              // Use methods on this to modify vending machine slot.
@@ -323,7 +504,15 @@ class Main {
         System.out.println("New price: "  + saleData.getPriceSold());
         System.out.println("New slot: " + saleData.getSlotSold());
 
+        //Testing VendingMachine functions
+        VendingMachine funcTest = new VendingMachine();
 
+        System.out.println("Testing verifyStock function: " + funcTest.verifyStock("E1") + " units needed.");
+        System.out.println("Testing verifyExpiration function: is the item expired? " + funcTest.verifyExpiration("E1"));
+
+        //testing Customer functions
+        Customer changeTest = new Customer();
+        changeTest.customerOrder("E1", 2.50);
 
     }
 }
