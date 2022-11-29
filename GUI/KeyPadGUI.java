@@ -55,7 +55,7 @@ public class KeyPadGUI extends JFrame implements ActionListener{
         frame.add(num,w);
         
         //Image
-        BufferedImage myPicture = ImageIO.read(new File("C:\\Users\\csus\\Downloads\\Five_GUIs-logos.jpeg"));
+        BufferedImage myPicture = ImageIO.read(new File("GUI\\Five_GUIs-logos.jpeg"));
         JLabel picLabel = new JLabel(new ImageIcon(myPicture));
         w.gridx =0;
         w.gridy = 0;
