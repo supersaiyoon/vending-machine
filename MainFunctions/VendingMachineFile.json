@@ -1,0 +1,504 @@
+{
+    "vendingMachine_Sacramento": {
+        "address": {
+            "country": "United States",
+            "zipCode": "90210",
+            "city": "Chicago",
+            "street": "23 Bulls Ln",
+            "state": "IL"
+        },
+        "slot": {
+            "E1": {
+                "quantity": 8,
+                "price": 4.99,
+                "productName": "Cheeto Chips",
+                "expDate": "0214"
+            },
+            "E2": {
+                "quantity": 15,
+                "price": 1.45,
+                "productName": "Chex Mix Traditional",
+                "expDate": "0323"
+            },
+            "C1": {
+                "quantity": 15,
+                "price": 1.65,
+                "productName": "Baby Ruth",
+                "expDate": "1223"
+            },
+            "E3": {
+                "quantity": 15,
+                "price": 2.1,
+                "productName": "Chocolate Chip Clif Bar",
+                "expDate": "0223"
+            },
+            "C2": {
+                "quantity": 15,
+                "price": 1.45,
+                "productName": "Starburst Original",
+                "expDate": "1223"
+            },
+            "E4": {
+                "quantity": 15,
+                "price": 2.1,
+                "productName": "Crunchy Peanut Butter Clif Bar",
+                "expDate": "0223"
+            },
+            "A1": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Crunchy Cheetos",
+                "expDate": "0323"
+            },
+            "C3": {
+                "quantity": 15,
+                "price": 1.95,
+                "productName": "Snickers",
+                "expDate": "1223"
+            },
+            "E5": {
+                "quantity": 15,
+                "price": 2,
+                "productName": "Oreo Cookies",
+                "expDate": "0523"
+            },
+            "A2": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Flamin' Hot Cheetos",
+                "expDate": "0323"
+            },
+            "C4": {
+                "quantity": 15,
+                "price": 1.5,
+                "productName": "Welch's Fruit Snacks",
+                "expDate": "0623"
+            },
+            "E6": {
+                "quantity": 15,
+                "price": 2.95,
+                "productName": "Jack Link's Original Beef Jerky",
+                "expDate": "0123"
+            },
+            "A3": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Flamin' Hot Funyuns",
+                "expDate": "0323"
+            },
+            "C5": {
+                "quantity": 15,
+                "price": 1.95,
+                "productName": "Reese's Peanut Butter Cups",
+                "expDate": "1223"
+            },
+            "E7": {
+                "quantity": 15,
+                "price": 1.65,
+                "productName": "Blue Diamond Almonds",
+                "expDate": "0223"
+            },
+            "A4": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Takis Fuego",
+                "expDate": "0323"
+            },
+            "C6": {
+                "quantity": 15,
+                "price": 2,
+                "productName": "Peanut M&M's",
+                "expDate": "1223"
+            },
+            "E8": {
+                "quantity": 15,
+                "price": 1.65,
+                "productName": "Planters Salted Peanuts",
+                "expDate": "0223"
+            },
+            "A5": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Harvest Cheddar Sun Chips",
+                "expDate": "0323"
+            },
+            "C7": {
+                "quantity": 15,
+                "price": 1.75,
+                "productName": "Skittles",
+                "expDate": "1223"
+            },
+            "A6": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Garden Salsa Sun Chips",
+                "expDate": "0323"
+            },
+            "C8": {
+                "quantity": 15,
+                "price": 1.8,
+                "productName": "Twix",
+                "expDate": "1223"
+            },
+            "A7": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Cool Ranch Doritos",
+                "expDate": "0323"
+            },
+            "A8": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Nacho Cheese Doritos",
+                "expDate": "0323"
+            },
+            "D1": {
+                "quantity": 15,
+                "price": 1.35,
+                "productName": "Hawaiian Sweet Onion Kettle Chips",
+                "expDate": "0423"
+            },
+            "D2": {
+                "quantity": 15,
+                "price": 1.35,
+                "productName": "Hawaiian Luau BBQ Kettle Chips",
+                "expDate": "0423"
+            },
+            "B1": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Snyder's of Hanover Pretzels Sourdough",
+                "expDate": "0323"
+            },
+            "D3": {
+                "quantity": 15,
+                "price": 1.25,
+                "productName": "Skinny Pop Popcorn",
+                "expDate": "0223"
+            },
+            "B2": {
+                "quantity": 15,
+                "price": 1.5,
+                "productName": "Nutella & Go!",
+                "expDate": "0523"
+            },
+            "D4": {
+                "quantity": 15,
+                "price": 1.95,
+                "productName": "Rice Krispie Treat",
+                "expDate": "0623"
+            },
+            "B3": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Oven Baked Cheddar & Sour Cream Ruffles",
+                "expDate": "0323"
+            },
+            "D5": {
+                "quantity": 15,
+                "price": 2.5,
+                "productName": "Famous Amos Double Chocolate Chip",
+                "expDate": "0423"
+            },
+            "B4": {
+                "quantity": 15,
+                "price": 1.25,
+                "productName": "Miss Vickie's Sea Salt & Vinegar",
+                "expDate": "0423"
+            },
+            "D6": {
+                "quantity": 15,
+                "price": 1.75,
+                "productName": "belVita Breakfast Biscuits",
+                "expDate": "0723"
+            },
+            "B5": {
+                "quantity": 15,
+                "price": 1.25,
+                "productName": "Miss Vickie's Smokehouse BBQ",
+                "expDate": "0423"
+            },
+            "D7": {
+                "quantity": 15,
+                "price": 1.25,
+                "productName": "Miss Vickie's Jalapeno",
+                "expDate": "0423"
+            },
+            "B6": {
+                "quantity": 15,
+                "price": 1.25,
+                "productName": "Miss Vickie's Sea Salt",
+                "expDate": "0423"
+            },
+            "D8": {
+                "quantity": 15,
+                "price": 1.75,
+                "productName": "Bon Appetit Blueberry Muffin",
+                "expDate": "0123"
+            },
+            "B7": {
+                "quantity": 15,
+                "price": 1.65,
+                "productName": "Caramel Almond & Sea Salt Kind Bar",
+                "expDate": "0323"
+            },
+            "B8": {
+                "quantity": 15,
+                "price": 1.8,
+                "productName": "Planters Spicy Nuts & Cajun Sticks Trail Mix",
+                "expDate": "0323"
+            }
+        }
+    },
+    "vendingMachine_Folsom": {
+        "address": {
+            "country": "United States",
+            "zipCode": "95630",
+            "city": "Folsom",
+            "street": "10 College Pkwy",
+            "state": "CA"
+        },
+        "slot": {
+            "E1": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Dasani Water",
+                "expDate": "1132"
+            },
+            "E2": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Dasani Water",
+                "expDate": "1132"
+            },
+            "C1": {
+                "quantity": 15,
+                "price": 2.45,
+                "productName": "Monster Energy Original Green",
+                "expDate": "1123"
+            },
+            "E3": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Dasani Water",
+                "expDate": "1132"
+            },
+            "C2": {
+                "quantity": 15,
+                "price": 2.45,
+                "productName": "Monster Energy Original Lo-Carb",
+                "expDate": "1123"
+            },
+            "E4": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Dasani Water",
+                "expDate": "1132"
+            },
+            "A1": {
+                "quantity": 15,
+                "price": 2.85,
+                "productName": "Starbucks Mocha Frappuccino",
+                "expDate": "0323"
+            },
+            "C3": {
+                "quantity": 15,
+                "price": 2.45,
+                "productName": "Monster Energy Ultra Violet",
+                "expDate": "1123"
+            },
+            "E5": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Dasani Water",
+                "expDate": "1132"
+            },
+            "A2": {
+                "quantity": 15,
+                "price": 2.85,
+                "productName": "Starbucks Vanilla Frappuccino",
+                "expDate": "0323"
+            },
+            "C4": {
+                "quantity": 15,
+                "price": 2.45,
+                "productName": "Monster Energy Ultra Watermelon",
+                "expDate": "1123"
+            },
+            "E6": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Dasani Water",
+                "expDate": "1132"
+            },
+            "A3": {
+                "quantity": 15,
+                "price": 2.85,
+                "productName": "Starbucks Caramel Frappuccino",
+                "expDate": "0323"
+            },
+            "C5": {
+                "quantity": 15,
+                "price": 2.45,
+                "productName": "Monster Energy Zero Ultra",
+                "expDate": "1123"
+            },
+            "E7": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Dasani Water",
+                "expDate": "1132"
+            },
+            "A4": {
+                "quantity": 15,
+                "price": 2.85,
+                "productName": "Starbucks Coffee Frappuccino",
+                "expDate": "0323"
+            },
+            "C6": {
+                "quantity": 15,
+                "price": 2.45,
+                "productName": "Red Bull Energy Drink",
+                "expDate": "1123"
+            },
+            "E8": {
+                "quantity": 15,
+                "price": 1,
+                "productName": "Dasani Water",
+                "expDate": "1132"
+            },
+            "A5": {
+                "quantity": 15,
+                "price": 2.95,
+                "productName": "Starbucks Vanilla Sweet Cream Nitro Cold Brew",
+                "expDate": "0323"
+            },
+            "C7": {
+                "quantity": 15,
+                "price": 2.45,
+                "productName": "Red Bull Energy Drink",
+                "expDate": "1123"
+            },
+            "A6": {
+                "quantity": 15,
+                "price": 2.45,
+                "productName": "Starbucks Black & Unsweet Cold Brew",
+                "expDate": "0423"
+            },
+            "C8": {
+                "quantity": 15,
+                "price": 2.45,
+                "productName": "Red Bull Energy Drink Sugar Free",
+                "expDate": "1123"
+            },
+            "A7": {
+                "quantity": 15,
+                "price": 3,
+                "productName": "Starbucks Vanilla Doubleshot Energy",
+                "expDate": "0323"
+            },
+            "A8": {
+                "quantity": 15,
+                "price": 2.85,
+                "productName": "Starbucks Espresso and Cream",
+                "expDate": "0323"
+            },
+            "D1": {
+                "quantity": 15,
+                "price": 2.25,
+                "productName": "Coca-Cola",
+                "expDate": "1223"
+            },
+            "D2": {
+                "quantity": 15,
+                "price": 2.25,
+                "productName": "Coca-Cola Coke Zero",
+                "expDate": "1223"
+            },
+            "B1": {
+                "quantity": 15,
+                "price": 2.6,
+                "productName": "Vitamin Water Acai Blueberry Pomegranate",
+                "expDate": "1123"
+            },
+            "D3": {
+                "quantity": 15,
+                "price": 2.25,
+                "productName": "Coca-Cola Diet Coke",
+                "expDate": "1223"
+            },
+            "B2": {
+                "quantity": 15,
+                "price": 2.6,
+                "productName": "Vitamin Water Fruit Punch",
+                "expDate": "1123"
+            },
+            "D4": {
+                "quantity": 15,
+                "price": 2.25,
+                "productName": "Sprite Lemon-Lime",
+                "expDate": "1223"
+            },
+            "B3": {
+                "quantity": 15,
+                "price": 2.6,
+                "productName": "Vitamin Water Dragonfruit",
+                "expDate": "1123"
+            },
+            "D5": {
+                "quantity": 15,
+                "price": 2.25,
+                "productName": "Sprite Lemon-Lime Zero Sugar",
+                "expDate": "1223"
+            },
+            "B4": {
+                "quantity": 15,
+                "price": 2.6,
+                "productName": "Vitamin Water Tropical Citrus",
+                "expDate": "1123"
+            },
+            "D6": {
+                "quantity": 15,
+                "price": 2.25,
+                "productName": "Fanta Orange Soda",
+                "expDate": "1223"
+            },
+            "B5": {
+                "quantity": 15,
+                "price": 2.6,
+                "productName": "Vitamin Water Tropical Mango",
+                "expDate": "1123"
+            },
+            "D7": {
+                "quantity": 15,
+                "price": 2.25,
+                "productName": "Fanta Lemon Soda",
+                "expDate": "1223"
+            },
+            "B6": {
+                "quantity": 15,
+                "price": 2.6,
+                "productName": "Vitamin Water Lemonade",
+                "expDate": "1123"
+            },
+            "D8": {
+                "quantity": 15,
+                "price": 2.25,
+                "productName": "Fanta Pineapple Soda",
+                "expDate": "1223"
+            },
+            "B7": {
+                "quantity": 15,
+                "price": 2.6,
+                "productName": "Vitamin Water Kiwi Strawberry",
+                "expDate": "1123"
+            },
+            "B8": {
+                "quantity": 15,
+                "price": 2.6,
+                "productName": "Vitamin Water Melon Hibiscus",
+                "expDate": "1123"
+            }
+        }
+    }
+}
