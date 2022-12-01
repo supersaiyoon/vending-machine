@@ -1,5 +1,6 @@
 import GUI.*;
 
+import java.io.*;
 import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -449,7 +450,7 @@ class Main {
 
         VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
 
-        System.out.println("\nAddress: " + vendingMachineSacramento.getAddress());
+        /*System.out.println("\nAddress: " + vendingMachineSacramento.getAddress());
         System.out.println("Product Name: " + vendingMachineSacramento.getSlotProductName("E1"));
         System.out.println("Price: $" + vendingMachineSacramento.getSlotPrice("E1"));
         System.out.println("Quantity: " + vendingMachineSacramento.getSlotQty("E1"));
@@ -474,13 +475,16 @@ class Main {
         System.out.println("Product Name: " + vendingMachineSacramento.getSlotProductName("E1"));
         System.out.println("Price: $" + vendingMachineSacramento.getSlotPrice("E1"));
         System.out.println("Quantity: " + vendingMachineSacramento.getSlotQty("E1"));
-        System.out.println("Exp. Date: " + vendingMachineSacramento.getSlotExpDate("E1"));
+        System.out.println("Exp. Date: " + vendingMachineSacramento.getSlotExpDate("E1"));*/
 
-        // new KeyPadGUI();
+        Process theProcess = null;
+        theProcess = Runtime.getRuntime().exec("java KeyPadGUI");
 
+        KeyPadGUI keypad = new KeyPadGUI();
+
+        /*
         //Buffer for SaleData
         System.out.println();
-
 
         //Testing SaleData JSON
         SaleDataFile saleData = new SaleDataFile();
@@ -513,6 +517,6 @@ class Main {
         //testing Customer functions
         Customer changeTest = new Customer();
         changeTest.customerOrder("E1", 2.50);
-
+        */
     }
 }
