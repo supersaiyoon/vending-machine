@@ -1,5 +1,7 @@
 package MainFunctions;
 
+import EventHandlers.*;
+
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -13,6 +15,8 @@ public class VendingMachineFile {
     public JSONObject vendingMachineObj;    // Used by constructor only. Do not touch.
     public JSONObject addressObj;           // Use methods on this to modify vending machine address info.
     public JSONObject slotObj;              // Use methods on this to modify vending machine slot.
+
+    public VendingMachineFile() {};
 
     public VendingMachineFile(String vendingMachineName) {
         String fileName = "VendingMachineFile.json";

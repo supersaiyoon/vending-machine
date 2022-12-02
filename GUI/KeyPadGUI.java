@@ -1,5 +1,7 @@
 package GUI;
 
+import EventHandlers.OrderInputPerformed;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
@@ -12,7 +14,18 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.NumberFormatter;
 
-public class KeyPadGUI extends JFrame implements ActionListener{
+public class KeyPadGUI extends JFrame implements ActionListener {
+    public String order;
+
+    JButton createKeypadButton(String text) {
+        JButton button = new JButton(text);
+
+        button.setContentAreaFilled(false);
+        button.setFocusPainted(false);
+        button.setForeground(Color.WHITE);
+
+        return button;
+    }
 
     public KeyPadGUI() throws Exception{
 
@@ -21,23 +34,24 @@ public class KeyPadGUI extends JFrame implements ActionListener{
         JFrame frame = new JFrame();
         frame.setVisible(true);
         frame.setSize(600,700);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Layout Setup using GridBag
         frame.setLayout(new GridBagLayout());
         GridBagConstraints w = new GridBagConstraints();
-        w.insets = new Insets(1,1,1,1);
-        frame.getContentPane().setBackground(Color.GRAY);
-        Font font = new Font("Verdana", Font.BOLD, 50);
+        w.insets = new Insets(2, 2, 2, 2);
+        frame.getContentPane().setBackground(Color.DARK_GRAY);
+        Font font = new Font("Verdana", Font.BOLD, 40);
 
         //All the Labels needed
-        JLabel header = new JLabel("Select Item");
+        JLabel header = new JLabel("Select Item:");
         JLabel letter = new JLabel();
         JLabel num = new JLabel();
 
         //Header
         header.setHorizontalAlignment(SwingConstants.CENTER);
         header.setFont(new Font("Verdana", Font.BOLD, 30));
-        header.setForeground(Color.RED);
+        header.setForeground(Color.WHITE);
         w.gridx = 1;
         w.gridy = 0;
         frame.add(header,w);
@@ -47,58 +61,62 @@ public class KeyPadGUI extends JFrame implements ActionListener{
         w.ipadx = 50;
         w.ipady = 100;
         letter.setFont(new Font("Verdana", Font.BOLD, 30));
+        letter.setForeground(Color.WHITE);
         frame.add(letter,w);
         //num in order
-        w.gridx =2;
+        w.gridx = 2;
         w.gridy = 0;
         w.ipadx = 1;
         w.ipady = 100;
         num.setFont(new Font("Verdana", Font.BOLD, 30));
+        num.setForeground(Color.WHITE);
         frame.add(num,w);
 
         //Image
-        BufferedImage myPicture = ImageIO.read(new File("C:\\Users\\csus\\Downloads\\Five_GUIs-logos.jpeg"));
+        BufferedImage myPicture = ImageIO.read(new File("GUI\\Five_GUIs-logos.jpeg"));
         JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-        w.gridx =0;
+        w.gridx = 0;
         w.gridy = 0;
         frame.add(picLabel,w);
 
         //Buttons
-        JButton a = new JButton("A");
-        JButton b = new JButton("B");
-        JButton c = new JButton("C");
-        JButton d = new JButton("D");
-        JButton e = new JButton("E");
-        JButton one = new JButton("1");
-        JButton two = new JButton("2");
-        JButton three = new JButton("3");
-        JButton four = new JButton("4");
-        JButton five = new JButton("5");
-        JButton six = new JButton("6");
-        JButton seven = new JButton("7");
-        JButton eight = new JButton("8");
-        JButton ok = new JButton("OK");
-        JButton back = new JButton("Back");
+        JButton a = createKeypadButton("A");
+        JButton b = createKeypadButton("B");
+        JButton c = createKeypadButton("C");
+        JButton d = createKeypadButton("D");
+        JButton e = createKeypadButton("E");
+        JButton one = createKeypadButton("1");
+        JButton two = createKeypadButton("2");
+        JButton three = createKeypadButton("3");
+        JButton four = createKeypadButton("4");
+        JButton five = createKeypadButton("5");
+        JButton six = createKeypadButton("6");
+        JButton seven = createKeypadButton("7");
+        JButton eight = createKeypadButton("8");
+        JButton ok = createKeypadButton("OK");
+        JButton back = createKeypadButton("CLR");
 
-        w.ipadx = 25; w.ipady = 25;
+        w.ipadx = 15; w.ipady = 15;
 
         //X Location/ Y Location  /Adding to Frame  /Setting Font
-        w.gridx = 0; w.gridy = 2; frame.add(back,w); back.setFont(font);
-        w.gridx = 1; w.gridy = 2; frame.add(a,w); a.setFont(font);
-        w.gridx = 2; w.gridy = 2; frame.add(b,w); b.setFont(font);
-        w.gridx = 0; w.gridy = 3; frame.add(c,w); c.setFont(font);
-        w.gridx = 1; w.gridy = 3; frame.add(d,w); d.setFont(font);
-        w.gridx = 2; w.gridy = 3; frame.add(e,w); e.setFont(font);
-        w.gridx = 0; w.gridy = 4; frame.add(one,w); one.setFont(font);
-        w.gridx = 1; w.gridy = 4; frame.add(two,w); two.setFont(font);
-        w.gridx = 2; w.gridy = 4; frame.add(three,w); three.setFont(font);
-        w.gridx = 0; w.gridy = 5; frame.add(four,w); four.setFont(font);
-        w.gridx = 1; w.gridy = 5; frame.add(five,w); five.setFont(font);
-        w.gridx = 2; w.gridy = 5; frame.add(six,w); six.setFont(font);
-        w.gridx = 0; w.gridy = 6; frame.add(seven,w); seven.setFont(font);
-        w.gridx = 1; w.gridy = 6; frame.add(eight,w); eight.setFont(font);
+        w.gridx = 0; w.gridy = 2; frame.add(a,w); a.setFont(font); 
+        w.gridx = 0; w.gridy = 3; frame.add(b,w); b.setFont(font);
+        w.gridx = 0; w.gridy = 4; frame.add(c,w); c.setFont(font);
+        w.gridx = 0; w.gridy = 5; frame.add(d,w); d.setFont(font);
+        w.gridx = 0; w.gridy = 6; frame.add(e,w); e.setFont(font);
+        w.gridx = 1; w.gridy = 2; frame.add(one,w); one.setFont(font);
+        w.gridx = 2; w.gridy = 2; frame.add(two,w); two.setFont(font);
+        w.gridx = 1; w.gridy = 3; frame.add(three,w); three.setFont(font);
+        w.gridx = 2; w.gridy = 3; frame.add(four,w); four.setFont(font);
+        w.gridx = 1; w.gridy = 4; frame.add(five,w); five.setFont(font);
+        w.gridx = 2; w.gridy = 4; frame.add(six,w); six.setFont(font);
+        w.gridx = 1; w.gridy = 5; frame.add(seven,w); seven.setFont(font);
+        w.gridx = 2; w.gridy = 5; frame.add(eight,w); eight.setFont(font);
+        w.gridx = 1; w.gridy = 6; frame.add(back,w); back.setFont(font);
         w.gridx = 2; w.gridy = 6; frame.add(ok,w); ok.setFont(font);
 
+
+        ActionListener orderListener = new OrderInputPerformed();
 
         ActionListener buttonListener = new ActionListener(){
 
@@ -147,15 +165,15 @@ public class KeyPadGUI extends JFrame implements ActionListener{
                 }
                 if(o == ok){
                     //Can be changed later making the second page
-                    String order = letter.getText() + num.getText();
+                    order = letter.getText() + num.getText();
                     if(order.length() != 2){
                         new CustomerErrorGUI();
                         frame.setVisible(false);
                     }
-                    else{
+                    /*else{
                         new CustomerOrderGUI(order);
                         frame.setVisible(false);
-                    }
+                    } */
                 }
                 if(o == back){
                     if(num.getText() != ""){
@@ -170,20 +188,35 @@ public class KeyPadGUI extends JFrame implements ActionListener{
 
         };
         a.addActionListener(buttonListener);
+        a.addActionListener(orderListener);
         b.addActionListener(buttonListener);
+        b.addActionListener(orderListener);
         c.addActionListener(buttonListener);
+        c.addActionListener(orderListener);
         d.addActionListener(buttonListener);
+        d.addActionListener(orderListener);
         e.addActionListener(buttonListener);
+        e.addActionListener(orderListener);
         one.addActionListener(buttonListener);
+        one.addActionListener(orderListener);
         two.addActionListener(buttonListener);
+        two.addActionListener(orderListener);
         three.addActionListener(buttonListener);
+        three.addActionListener(orderListener);
         four.addActionListener(buttonListener);
+        four.addActionListener(orderListener);
         five.addActionListener(buttonListener);
+        five.addActionListener(orderListener);
         six.addActionListener(buttonListener);
+        six.addActionListener(orderListener);
         seven.addActionListener(buttonListener);
+        seven.addActionListener(orderListener);
         eight.addActionListener(buttonListener);
+        eight.addActionListener(orderListener);
         ok.addActionListener(buttonListener);
+        ok.addActionListener(orderListener);
         back.addActionListener(buttonListener);
+        back.addActionListener(orderListener);
     }
 
 
@@ -241,6 +274,7 @@ class CustomerOrderGUI{
         JFrame frame = new JFrame();
         frame.setVisible(true);
         frame.setSize(600, 700);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //Layout
         frame.setLayout(new GridBagLayout());
         GridBagConstraints w = new GridBagConstraints();
@@ -288,12 +322,11 @@ class CustomerOrderGUI{
         w.gridx = 2; w.gridy = 4; frame.add(ok,w); ok.setFont(button); ok.setBackground(Color.GREEN);
         //Buttons
         ActionListener buttonListener = new ActionListener(){
-
             @Override
             public void actionPerformed(ActionEvent ae) {
                 Object o = ae.getSource();
-
-                if(o == back){
+                
+                if(o == back || o == ok){  // Return to keypad after purchase or just want to go back.
                     try {
                         new KeyPadGUI();
                         frame.setVisible(false);
@@ -301,9 +334,6 @@ class CustomerOrderGUI{
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
-                }
-                else if(o == ok){
-                    frame.setVisible(false);
                 }
             }
         };
