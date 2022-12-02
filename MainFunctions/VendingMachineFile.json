@@ -1,18 +1,19 @@
 {
     "vendingMachine_Sacramento": {
+        "active": "0",
         "address": {
             "country": "United States",
-            "zipCode": "90210",
-            "city": "Chicago",
-            "street": "23 Bulls Ln",
-            "state": "IL"
+            "zipCode": "95819",
+            "city": "Sacramento",
+            "street": "6000 J St",
+            "state": "CA"
         },
         "slot": {
             "E1": {
-                "quantity": 8,
-                "price": 4.99,
-                "productName": "Cheeto Chips",
-                "expDate": "0214"
+                "quantity": 15,
+                "price": 1.45,
+                "productName": "Cheez-It Original",
+                "expDate": "0323"
             },
             "E2": {
                 "quantity": 15,
