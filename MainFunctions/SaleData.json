@@ -1,62 +1,47 @@
 [
-    {"05/12/2022 13:08:59": {
-        "price": 1,
-        "slot": "B1",
-        "productName": "Snyder's of Hanover Pretzels Sourdough"
+    {"06/12/2022 11:39:08": {
+        "price": "$2.50",
+        "slot": "D5",
+        "productName": "Famous Amos Double Chocolate Chip"
     }},
-    {"05/12/2022 13:22:18": {
-        "price": 1.45,
-        "slot": "E1",
-        "productName": "Cheez-It Original"
+    {"06/12/2022 13:21:52": {
+        "price": "$1.25",
+        "slot": "D7",
+        "productName": "Miss Vickie's Jalapeno"
     }},
-    {"05/12/2022 13:23:15": {
-        "price": 1,
-        "slot": "B1",
-        "productName": "Snyder's of Hanover Pretzels Sourdough"
+    {"06/12/2022 13:23:43": {
+        "price": "$1.75",
+        "slot": "D8",
+        "productName": "Bon Appetit Blueberry Muffin"
     }},
-    {"05/12/2022 13:23:21": {
-        "price": 1,
-        "slot": "B1",
-        "productName": "Snyder's of Hanover Pretzels Sourdough"
+    {"06/12/2022 13:24:47": {
+        "price": "$1.49",
+        "slot": "B3",
+        "productName": "Oven Baked Cheddar & Sour Cream Ruffles"
     }},
-    {"05/12/2022 13:23:25": {
-        "price": 1,
-        "slot": "B1",
-        "productName": "Snyder's of Hanover Pretzels Sourdough"
+    {"06/12/2022 13:25:52": {
+        "price": "$1.65",
+        "slot": "E8",
+        "productName": "Planters Salted Peanuts"
     }},
-    {"05/12/2022 13:35:14": {
-        "price": 1.45,
-        "slot": "E1",
-        "productName": "Cheez-It Original"
+    {"06/12/2022 13:27:41": {
+        "price": "$2.50",
+        "slot": "D5",
+        "productName": "Famous Amos Double Chocolate Chip"
     }},
-    {"05/12/2022 13:49:23": {
-        "price": 1.65,
+    {"06/12/2022 13:28:43": {
+        "price": "$1.65",
         "slot": "C1",
         "productName": "Baby Ruth"
     }},
-    {"05/12/2022 13:50:29": {
-        "price": 1.35,
-        "slot": "D1",
-        "productName": "Hawaiian Sweet Onion Kettle Chips"
+    {"06/12/2022 13:38:50": {
+        "price": "$1.79",
+        "slot": "A4",
+        "productName": "Takis Fuego"
     }},
-    {"05/12/2022 13:55:03": {
-        "price": 1.95,
-        "slot": "C5",
-        "productName": "Reese's Peanut Butter Cups"
-    }},
-    {"05/12/2022 13:55:09": {
-        "price": 1.75,
-        "slot": "D6",
-        "productName": "belVita Breakfast Biscuits"
-    }},
-    {"05/12/2022 13:56:56": {
-        "price": 1.45,
-        "slot": "E2",
-        "productName": "Chex Mix Traditional"
-    }},
-    {"05/12/2022 13:58:05": {
-        "price": 1.45,
-        "slot": "E2",
-        "productName": "Chex Mix Traditional"
+    {"06/12/2022 13:40:42": {
+        "price": "$1.45",
+        "slot": "C2",
+        "productName": "Starburst Original"
     }}
 ]

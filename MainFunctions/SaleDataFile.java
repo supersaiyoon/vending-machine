@@ -11,9 +11,13 @@ import java.io.*;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+import java.text.DecimalFormat;
+
 public class SaleDataFile {
 
-    public String dateSold;   // Multiple dates will need to be accessed
     public JSONObject tokenObj;  // Access nested JSON objects through this.
     public String fileNameJSON = "MainFunctions/SaleData.json";
 
@@ -39,7 +43,6 @@ public class SaleDataFile {
         }
 
         JSONTokener tokener = new JSONTokener(json);
-        //tokenObj = new JSONObject(tokener);
         JSONArray readArr = new JSONArray(tokener);
 
     }
@@ -83,17 +86,21 @@ public class SaleDataFile {
 
     public void newSaleDate(String slot) throws IOException {  // Need to do this before using any methods.
 
+        //set up classes from other files/formatters
         VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         JSONArray arr = initArray("MainFunctions/SaleData.json");
+        DecimalFormat df = new DecimalFormat("$#,##0.00");
+
 
         LocalDateTime now = LocalDateTime.now();
         String currentDate = String.valueOf(dtf.format(now));
 
+        //put values and keys into new arrays
         JSONObject saleDataObj = new JSONObject();
         JSONObject valuesObject = new JSONObject();
 
-        valuesObject.put("price", vendingMachineSacramento.getSlotPrice(slot));
+        valuesObject.put("price", df.format(vendingMachineSacramento.getSlotPrice(slot)));
         valuesObject.put("slot", slot);
         valuesObject.put("productName", vendingMachineSacramento.getSlotProductName(slot));
 
@@ -104,56 +111,103 @@ public class SaleDataFile {
 
     }
 
-    public String getProductNameSold() {
+    public String getDateSold() throws IOException {
         //Get product name sold on particular date
 
-        JSONObject saleDataObj = tokenObj.getJSONObject(dateSold);
+        JSONArray arr = initArray("MainFunctions/SaleData.json");
 
-        String productName = saleDataObj.getString("productName");
-        return productName;
+        String result = "| ";
+
+        for(int i=0; i<arr.length(); i++) {
+
+            String price = arr.get(i).toString();
+
+            final Pattern pattern = Pattern.compile("\\d\\d/\\d\\d/\\d\\d\\d\\d\\s\\d\\d:\\d\\d:\\d\\d", Pattern.CASE_INSENSITIVE);
+            final Matcher matcher = pattern.matcher(price);
+
+            if (matcher.find()) {
+
+                result +=  matcher.group(0) +" | " ;
+            }
+        }
+        System.out.println(result);
+        return result;
     }
 
-    public void setProductNameSold(String productName) {
+    public String getProductNameSold() throws IOException {
+        //Get product name sold on particular date
 
-        JSONObject saleDataObj = tokenObj.getJSONObject(dateSold);
+        JSONArray arr = initArray("MainFunctions/SaleData.json");
 
-        saleDataObj.put("productName", productName);
-        writeFile();
+        String result ="| ";
+
+        for(int i=0; i<arr.length(); i++) {
+
+            String price = arr.get(i).toString();
+
+            final Pattern pattern = Pattern.compile("me\":\"(.*?)\"\\}", Pattern.CASE_INSENSITIVE);
+            final Matcher matcher = pattern.matcher(price);
+
+
+
+            if (matcher.find()) {
+
+                result +=  matcher.group(1) + " | ";
+
+            }
+
+        }
+        System.out.println(result);
+        return result;
     }
 
-    /*public Double getPriceSold(String date) throws IOException {
+    public String getPriceSold() throws IOException {
         //Get product price sold on particular date/time
 
         JSONArray arr = initArray("MainFunctions/SaleData.json");
 
-        Double priceSold = arr.getJSONObject(0).getString(date);
-        return priceSold;
-    }*/
+        String result ="| ";
 
-    public void setPriceSold(double priceSold) {
+        for(int i=0; i<arr.length(); i++) {
 
-        JSONObject saleDataObj = tokenObj.getJSONObject(dateSold);
+            String price = arr.get(i).toString();
 
-        saleDataObj.put("price", priceSold);
-        writeFile();
+            final Pattern pattern = Pattern.compile("\\d\\.\\d\\d", Pattern.CASE_INSENSITIVE);
+            final Matcher matcher = pattern.matcher(price);
+
+            if (matcher.find()) {
+
+                result +=  matcher.group(0) +" | ";
+            }
+        }
+        System.out.println(result);
+        return result;
     }
 
 
-    public String getSlotSold() {
+    public String getSlotSold() throws IOException {
         //Get product slot that was sold on particular date/time
 
-        JSONObject saleDataObj = tokenObj.getJSONObject(dateSold);
+        JSONArray arr = initArray("MainFunctions/SaleData.json");
 
-        String slotSold = saleDataObj.getString("slot");
-        return slotSold;
+        String result ="| ";
+
+        for(int i=0; i<arr.length(); i++) {
+
+            String price = arr.get(i).toString();
+
+            final Pattern pattern = Pattern.compile("[a-zA-Z][0-9]+", Pattern.CASE_INSENSITIVE);
+            final Matcher matcher = pattern.matcher(price);
+
+            if (matcher.find()) {
+
+                result +=  matcher.group(0) +" | ";
+            }
+        }
+        System.out.println(result);
+        return result;
     }
 
-    public void setSlotSold(String slotSold) {
 
-        JSONObject saleDataObj = tokenObj.getJSONObject(dateSold);
-
-        saleDataObj.put("slot", slotSold);
-        writeFile();
-    }
 
 }
