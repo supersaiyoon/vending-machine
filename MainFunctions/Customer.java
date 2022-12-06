@@ -63,8 +63,6 @@ public class Customer {
         SaleDataFile sale = new SaleDataFile();
 
         sale.newSaleDate(slot);
-        //sale.getPriceSold("05/12/2022 13:08:59");
-
 
     }
 

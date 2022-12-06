@@ -22,19 +22,19 @@
                 "expDate": "0323"
             },
             "C1": {
-                "quantity": 13,
+                "quantity": 10,
                 "price": 1.65,
                 "productName": "Baby Ruth",
                 "expDate": "1223"
             },
             "E3": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 2.1,
                 "productName": "Chocolate Chip Clif Bar",
                 "expDate": "0223"
             },
             "C2": {
-                "quantity": 15,
+                "quantity": 13,
                 "price": 1.45,
                 "productName": "Starburst Original",
                 "expDate": "1223"
@@ -76,7 +76,7 @@
                 "expDate": "0623"
             },
             "E6": {
-                "quantity": 15,
+                "quantity": 10,
                 "price": 2.95,
                 "productName": "Jack Link's Original Beef Jerky",
                 "expDate": "0123"
@@ -88,7 +88,7 @@
                 "expDate": "0323"
             },
             "C5": {
-                "quantity": 15,
+                "quantity": 13,
                 "price": 1.95,
                 "productName": "Reese's Peanut Butter Cups",
                 "expDate": "1223"
@@ -100,7 +100,7 @@
                 "expDate": "0223"
             },
             "A4": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 1.79,
                 "productName": "Takis Fuego",
                 "expDate": "0323"
@@ -112,7 +112,7 @@
                 "expDate": "1223"
             },
             "E8": {
-                "quantity": 15,
+                "quantity": 10,
                 "price": 1.65,
                 "productName": "Planters Salted Peanuts",
                 "expDate": "0223"
@@ -136,7 +136,7 @@
                 "expDate": "0323"
             },
             "C8": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 1.8,
                 "productName": "Twix",
                 "expDate": "1223"
@@ -154,7 +154,7 @@
                 "expDate": "0323"
             },
             "D1": {
-                "quantity": 14,
+                "quantity": 12,
                 "price": 1.35,
                 "productName": "Hawaiian Sweet Onion Kettle Chips",
                 "expDate": "0423"
@@ -184,19 +184,19 @@
                 "expDate": "0523"
             },
             "D4": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 1.95,
                 "productName": "Rice Krispie Treat",
                 "expDate": "0623"
             },
             "B3": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 1.49,
                 "productName": "Oven Baked Cheddar & Sour Cream Ruffles",
                 "expDate": "0323"
             },
             "D5": {
-                "quantity": 15,
+                "quantity": 6,
                 "price": 2.5,
                 "productName": "Famous Amos Double Chocolate Chip",
                 "expDate": "0423"
@@ -208,31 +208,31 @@
                 "expDate": "0423"
             },
             "D6": {
-                "quantity": 14,
+                "quantity": 9,
                 "price": 1.75,
                 "productName": "belVita Breakfast Biscuits",
                 "expDate": "0723"
             },
             "B5": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 1.25,
                 "productName": "Miss Vickie's Smokehouse BBQ",
                 "expDate": "0423"
             },
             "D7": {
-                "quantity": 15,
+                "quantity": 12,
                 "price": 1.25,
                 "productName": "Miss Vickie's Jalapeno",
                 "expDate": "0423"
             },
             "B6": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 1.25,
                 "productName": "Miss Vickie's Sea Salt",
                 "expDate": "0423"
             },
             "D8": {
-                "quantity": 15,
+                "quantity": 12,
                 "price": 1.75,
                 "productName": "Bon Appetit Blueberry Muffin",
                 "expDate": "0123"
@@ -244,7 +244,7 @@
                 "expDate": "0323"
             },
             "B8": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 1.8,
                 "productName": "Planters Spicy Nuts & Cajun Sticks Trail Mix",
                 "expDate": "0323"
