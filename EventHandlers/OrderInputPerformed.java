@@ -60,8 +60,15 @@ public class OrderInputPerformed implements ActionListener {
         else if (o.getText() == "OK") {
             letter = "OK";
         }
+        else if (o.getText() == "CLR") {
+            letter = "CLR";
+        }
 
         return letter;
+    }
+
+    void clearConsole() {
+        System.out.print("\033\143");
     }
 
     // Order processing logic goes here. Update files, compute change, etc.
@@ -88,12 +95,18 @@ public class OrderInputPerformed implements ActionListener {
             }
         }
 
+        if (letter == "CLR") {
+            slotLetter = null;
+            slotNum = null;
+        }
+
         if (slotLetter != null && slotNum != null && letter == "OK") {
 
             //for returning proper rounded change format #.## instead of massive doubles
             DecimalFormat df = new DecimalFormat("$#,##0.00");
 
             String slot = slotLetter + slotNum;
+            clearConsole();
             System.out.println("\nProcessing customer order for slot " + slot);
 
             VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
@@ -104,10 +117,8 @@ public class OrderInputPerformed implements ActionListener {
 
             //while expiration date has not passed
             if (!classObj.verifyExpiration(slot) && newItemQty > 0) {
-
-
                 System.out.println("You want to purchase " + vendingMachineSacramento.getSlotProductName(slot));
-                System.out.println("Please enter $" + df.format(vendingMachineSacramento.getSlotPrice(slot)));
+                System.out.println("Please enter " + df.format(vendingMachineSacramento.getSlotPrice(slot)));
                 System.out.println();
 
                 Scanner getMoney = new Scanner(System.in);
@@ -120,13 +131,14 @@ public class OrderInputPerformed implements ActionListener {
                 //save sale data in SaleData.json
                 try {
                     custObj.newSaleData(slot);
+                    slotLetter = null;
+                    slotNum = null;
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
             }
 
-            else{
-
+            else {
                 System.out.println("ERROR: Item is unavailable, please choose a different item.");
             }
 

@@ -37,7 +37,7 @@ public class Customer {
             }
 
             else{
-                System.out.println("Thank you, your change today is: $" + df.format(changeReturn));
+                System.out.println("Thank you, your change today is: " + df.format(changeReturn));
 
             }
             return changeReturn;
