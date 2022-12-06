@@ -42,8 +42,6 @@ public class VendingMachine {
         vendingMachineSacramento.setSlotExpDate(slotNumber, " ");
 
     }
-    void changePrice() {}
-    void getSaleData() {}
 
     //returns true if item in specified slot is expired, false if it is not
     public boolean verifyExpiration(String slotNumber) {

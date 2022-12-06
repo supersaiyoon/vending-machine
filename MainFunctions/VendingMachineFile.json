@@ -1,6 +1,5 @@
 {
     "vendingMachine_Sacramento": {
-        "active": "0",
         "address": {
             "country": "United States",
             "zipCode": "95819",
@@ -8,21 +7,22 @@
             "street": "6000 J St",
             "state": "CA"
         },
+        "active": "0",
         "slot": {
             "E1": {
-                "quantity": 15,
+                "quantity": 9,
                 "price": 1.45,
                 "productName": "Cheez-It Original",
-                "expDate": "0323"
+                "expDate": "0324"
             },
             "E2": {
-                "quantity": 15,
+                "quantity": 13,
                 "price": 1.45,
                 "productName": "Chex Mix Traditional",
                 "expDate": "0323"
             },
             "C1": {
-                "quantity": 15,
+                "quantity": 13,
                 "price": 1.65,
                 "productName": "Baby Ruth",
                 "expDate": "1223"
@@ -46,8 +46,8 @@
                 "expDate": "0223"
             },
             "A1": {
-                "quantity": 15,
-                "price": 1,
+                "quantity": 0,
+                "price": 1.29,
                 "productName": "Crunchy Cheetos",
                 "expDate": "0323"
             },
@@ -65,7 +65,7 @@
             },
             "A2": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.49,
                 "productName": "Flamin' Hot Cheetos",
                 "expDate": "0323"
             },
@@ -83,7 +83,7 @@
             },
             "A3": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.59,
                 "productName": "Flamin' Hot Funyuns",
                 "expDate": "0323"
             },
@@ -101,7 +101,7 @@
             },
             "A4": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.79,
                 "productName": "Takis Fuego",
                 "expDate": "0323"
             },
@@ -119,7 +119,7 @@
             },
             "A5": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.69,
                 "productName": "Harvest Cheddar Sun Chips",
                 "expDate": "0323"
             },
@@ -131,7 +131,7 @@
             },
             "A6": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.19,
                 "productName": "Garden Salsa Sun Chips",
                 "expDate": "0323"
             },
@@ -143,18 +143,18 @@
             },
             "A7": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.49,
                 "productName": "Cool Ranch Doritos",
                 "expDate": "0323"
             },
             "A8": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.49,
                 "productName": "Nacho Cheese Doritos",
                 "expDate": "0323"
             },
             "D1": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 1.35,
                 "productName": "Hawaiian Sweet Onion Kettle Chips",
                 "expDate": "0423"
@@ -166,8 +166,8 @@
                 "expDate": "0423"
             },
             "B1": {
-                "quantity": 15,
-                "price": 1,
+                "quantity": 13,
+                "price": 1.99,
                 "productName": "Snyder's of Hanover Pretzels Sourdough",
                 "expDate": "0323"
             },
@@ -191,7 +191,7 @@
             },
             "B3": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.49,
                 "productName": "Oven Baked Cheddar & Sour Cream Ruffles",
                 "expDate": "0323"
             },
@@ -208,7 +208,7 @@
                 "expDate": "0423"
             },
             "D6": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 1.75,
                 "productName": "belVita Breakfast Biscuits",
                 "expDate": "0723"
@@ -262,13 +262,13 @@
         "slot": {
             "E1": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.49,
                 "productName": "Dasani Water",
                 "expDate": "1132"
             },
             "E2": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.49,
                 "productName": "Dasani Water",
                 "expDate": "1132"
             },
@@ -280,7 +280,7 @@
             },
             "E3": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.49,
                 "productName": "Dasani Water",
                 "expDate": "1132"
             },
@@ -292,7 +292,7 @@
             },
             "E4": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.89,
                 "productName": "Dasani Water",
                 "expDate": "1132"
             },
@@ -310,7 +310,7 @@
             },
             "E5": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.89,
                 "productName": "Dasani Water",
                 "expDate": "1132"
             },
@@ -328,7 +328,7 @@
             },
             "E6": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.79,
                 "productName": "Dasani Water",
                 "expDate": "1132"
             },
@@ -346,7 +346,7 @@
             },
             "E7": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.49,
                 "productName": "Dasani Water",
                 "expDate": "1132"
             },
@@ -364,7 +364,7 @@
             },
             "E8": {
                 "quantity": 15,
-                "price": 1,
+                "price": 1.39,
                 "productName": "Dasani Water",
                 "expDate": "1132"
             },

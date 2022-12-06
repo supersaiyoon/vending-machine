@@ -2,6 +2,10 @@ package EventHandlers;
 
 import MainFunctions.*;
 
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -85,14 +89,46 @@ public class OrderInputPerformed implements ActionListener {
         }
 
         if (slotLetter != null && slotNum != null && letter == "OK") {
+
+            //for returning proper rounded change format #.## instead of massive doubles
+            DecimalFormat df = new DecimalFormat("$#,##0.00");
+
             String slot = slotLetter + slotNum;
             System.out.println("\nProcessing customer order for slot " + slot);
 
             VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
+            Customer custObj = new Customer();
+            VendingMachine classObj = new VendingMachine();
 
-            System.out.println("Customer wants to purchase " + vendingMachineSacramento.getSlotProductName(slot));
-            System.out.println("Customer needs to pay $" + vendingMachineSacramento.getSlotPrice(slot));
-            System.out.println();
+            int newItemQty = vendingMachineSacramento.getSlotQty(slot);
+
+            //while expiration date has not passed
+            if (!classObj.verifyExpiration(slot) && newItemQty > 0) {
+
+
+                System.out.println("You want to purchase " + vendingMachineSacramento.getSlotProductName(slot));
+                System.out.println("Please enter $" + df.format(vendingMachineSacramento.getSlotPrice(slot)));
+                System.out.println();
+
+                Scanner getMoney = new Scanner(System.in);
+                System.out.println("Please insert money: ");
+                double moneyInsert = Double.parseDouble(getMoney.nextLine());
+
+                //get slot from keypad, money from terminal
+                custObj.customerOrder(slot, moneyInsert);
+
+                //save sale data in SaleData.json
+                try {
+                    custObj.newSaleData(slot);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+
+            else{
+
+                System.out.println("ERROR: Item is unavailable, please choose a different item.");
+            }
 
             /*
             //Buffer for SaleData
