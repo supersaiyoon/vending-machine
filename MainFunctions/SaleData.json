@@ -1,12 +1,62 @@
-{
-  "11.14.22.10.31.22": {
-    "price": 4.99,
-    "slot": "E8",
-    "productName": "Cheetos"
-  },
-  "MMddyyhhmmss": {
-    "price": 0,
-    "slot": "",
-    "productName": ""
-  }
-}
+[
+    {"05/12/2022 13:08:59": {
+        "price": 1,
+        "slot": "B1",
+        "productName": "Snyder's of Hanover Pretzels Sourdough"
+    }},
+    {"05/12/2022 13:22:18": {
+        "price": 1.45,
+        "slot": "E1",
+        "productName": "Cheez-It Original"
+    }},
+    {"05/12/2022 13:23:15": {
+        "price": 1,
+        "slot": "B1",
+        "productName": "Snyder's of Hanover Pretzels Sourdough"
+    }},
+    {"05/12/2022 13:23:21": {
+        "price": 1,
+        "slot": "B1",
+        "productName": "Snyder's of Hanover Pretzels Sourdough"
+    }},
+    {"05/12/2022 13:23:25": {
+        "price": 1,
+        "slot": "B1",
+        "productName": "Snyder's of Hanover Pretzels Sourdough"
+    }},
+    {"05/12/2022 13:35:14": {
+        "price": 1.45,
+        "slot": "E1",
+        "productName": "Cheez-It Original"
+    }},
+    {"05/12/2022 13:49:23": {
+        "price": 1.65,
+        "slot": "C1",
+        "productName": "Baby Ruth"
+    }},
+    {"05/12/2022 13:50:29": {
+        "price": 1.35,
+        "slot": "D1",
+        "productName": "Hawaiian Sweet Onion Kettle Chips"
+    }},
+    {"05/12/2022 13:55:03": {
+        "price": 1.95,
+        "slot": "C5",
+        "productName": "Reese's Peanut Butter Cups"
+    }},
+    {"05/12/2022 13:55:09": {
+        "price": 1.75,
+        "slot": "D6",
+        "productName": "belVita Breakfast Biscuits"
+    }},
+    {"05/12/2022 13:56:56": {
+        "price": 1.45,
+        "slot": "E2",
+        "productName": "Chex Mix Traditional"
+    }},
+    {"05/12/2022 13:58:05": {
+        "price": 1.45,
+        "slot": "E2",
+        "productName": "Chex Mix Traditional"
+    }}
+]
