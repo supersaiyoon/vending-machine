@@ -145,14 +145,12 @@ class Restocker {
                     }
                     else{
                         System.out.println("ERROR: Unaccepted input, please insert [1] to return.");
+                        break;
                     }
-
-                    System.out.println();
-                    break;
 
                 case 2:
 
-                    System.out.println("\nItems below max quantity checklist:");
+                    System.out.println("\nItems needed to fill machine:");
                     System.out.println("------------------------------------------------");
                     checklist();
 
@@ -164,7 +162,6 @@ class Restocker {
 
                     if (restockChoice == 1) {
                             refill();
-                            checklist();
                             System.out.println("Items refilled, returning to Main Menu... \n");
                             break;
 
@@ -176,8 +173,7 @@ class Restocker {
 
                     else
                             System.out.println("ERROR: Unaccepted input, please insert [1] or [2].");
-                        //break;
-
+                            break;
 
                 case 3:
                     int replaceChoice;
@@ -185,38 +181,38 @@ class Restocker {
                     System.out.println("\nReplace item in Vending Machine?");
                     System.out.println("[1] Yes");
                     System.out.println("[2] No");
+
                     replaceChoice = input.nextInt();
 
-                    if(replaceChoice == 1) {
-                        int qty = 15;
 
-                        System.out.println("Which slot?");
-                        String slot = Input2.nextLine();
-                        vendingMachineSacramento.setSlotQty(slot, qty);
+                        if (replaceChoice == 1) {
+                            int qty = 15;
 
-                        System.out.println("New product's name?");
-                        String name = Input2.nextLine();
-                        vendingMachineSacramento.setSlotProductName(slot, name);
+                            System.out.println("Which slot?");
+                            String slot = Input2.nextLine();
+                            vendingMachineSacramento.setSlotQty(slot, qty);
 
-                        System.out.println("Price?");
-                        double price = Input2.nextDouble();
-                        vendingMachineSacramento.setSlotPrice(slot, price);
+                            System.out.println("New product's name?");
+                            String name = Input2.nextLine();
+                            vendingMachineSacramento.setSlotProductName(slot, name);
 
-                        System.out.println("Expiration date?");
-                        String date = Input3.nextLine();
-                        vendingMachineSacramento.setSlotExpDate(slot, date);
+                            System.out.println("Price?");
+                            double price = Input2.nextDouble();
+                            vendingMachineSacramento.setSlotPrice(slot, price);
 
-                        System.out.println(slot + " replaced. Thank you!\n");
-                        break;
-                    }
+                            System.out.println("Expiration date?");
+                            String date = Input3.nextLine();
+                            vendingMachineSacramento.setSlotExpDate(slot, date);
 
-                    else if(replaceChoice == 2) {
-                        System.out.println("Returning to Main Menu... \n");
-                        break;
-                    }
-                    else
-                        System.out.println("ERROR: Unaccepted input, please insert [1] or [2].");
-
+                            System.out.println(slot + " replaced. Thank you!\n");
+                            break;
+                        } else if (replaceChoice == 2) {
+                            System.out.println("Returning to Main Menu... \n");
+                            break;
+                        } else{
+                            System.out.println("ERROR: Unaccepted input, please insert [1] or [2].\n");
+                            break;
+                        }
 
                 case 4:
                     System.out.println("Exiting Restocker Interface...");
