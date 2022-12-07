@@ -88,7 +88,7 @@ public class SaleDataFile {
 
         //set up classes from other files/formatters
         VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss");
         JSONArray arr = initArray("MainFunctions/SaleData.json");
         DecimalFormat df = new DecimalFormat("$#,##0.00");
 
@@ -116,7 +116,7 @@ public class SaleDataFile {
 
         JSONArray arr = initArray("MainFunctions/SaleData.json");
 
-        String result = "| ";
+        String result = "";
 
         for(int i=0; i<arr.length(); i++) {
 
@@ -127,10 +127,9 @@ public class SaleDataFile {
 
             if (matcher.find()) {
 
-                result +=  matcher.group(0) +" | " ;
+                result +=  matcher.group(0) +"," ;
             }
         }
-        System.out.println(result);
         return result;
     }
 
@@ -139,7 +138,7 @@ public class SaleDataFile {
 
         JSONArray arr = initArray("MainFunctions/SaleData.json");
 
-        String result ="| ";
+        String result ="";
 
         for(int i=0; i<arr.length(); i++) {
 
@@ -152,12 +151,11 @@ public class SaleDataFile {
 
             if (matcher.find()) {
 
-                result +=  matcher.group(1) + " | ";
+                result +=  matcher.group(1) + ",";
 
             }
 
         }
-        System.out.println(result);
         return result;
     }
 
@@ -166,7 +164,7 @@ public class SaleDataFile {
 
         JSONArray arr = initArray("MainFunctions/SaleData.json");
 
-        String result ="| ";
+        String result ="";
 
         for(int i=0; i<arr.length(); i++) {
 
@@ -177,10 +175,9 @@ public class SaleDataFile {
 
             if (matcher.find()) {
 
-                result +=  matcher.group(0) +" | ";
+                result +=  matcher.group(0) + " ";
             }
         }
-        System.out.println(result);
         return result;
     }
 
@@ -190,7 +187,7 @@ public class SaleDataFile {
 
         JSONArray arr = initArray("MainFunctions/SaleData.json");
 
-        String result ="| ";
+        String result = "";
 
         for(int i=0; i<arr.length(); i++) {
 
@@ -201,10 +198,9 @@ public class SaleDataFile {
 
             if (matcher.find()) {
 
-                result +=  matcher.group(0) +" | ";
+                result +=  matcher.group(0) + " ";
             }
         }
-        System.out.println(result);
         return result;
     }
 
