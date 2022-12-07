@@ -11,9 +11,9 @@
         "slot": {
             "E1": {
                 "quantity": 15,
-                "price": 1.45,
-                "productName": "Cheez-It Original",
-                "expDate": "0324"
+                "price": 1.99,
+                "productName": "Pretzels",
+                "expDate": "1123"
             },
             "E2": {
                 "quantity": 15,
@@ -47,9 +47,9 @@
             },
             "A1": {
                 "quantity": 15,
-                "price": 1.29,
-                "productName": "Crunchy Cheetos",
-                "expDate": "0323"
+                "price": 1.95,
+                "productName": "Pretzels",
+                "expDate": "1223"
             },
             "C3": {
                 "quantity": 15,
@@ -190,7 +190,7 @@
                 "expDate": "0623"
             },
             "B3": {
-                "quantity": 14,
+                "quantity": 15,
                 "price": 1.49,
                 "productName": "Oven Baked Cheddar & Sour Cream Ruffles",
                 "expDate": "0323"
