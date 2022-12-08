@@ -141,43 +141,6 @@ public class OrderInputPerformed implements ActionListener {
             else {
                 System.out.println("ERROR: Item is unavailable, please choose a different item.");
             }
-
-            /*
-            //Buffer for SaleData
-            System.out.println();
-
-            //Testing SaleData JSON
-            SaleDataFile saleData = new SaleDataFile();
-            //Set date of sale for specific data
-            System.out.println("Setting Sale Date: ");
-            saleData.setSaleDate("11.14.22.10.31.22");
-            System.out.println("Sale Date set.\n");
-
-            //Testing get functions
-            System.out.println("Product name retrieved: " + saleData.getProductNameSold());
-            System.out.println("Product price retrieved: " + saleData.getPriceSold());
-            System.out.println("Product location retrieved: " + saleData.getSlotSold()+"\n");
-
-            //Testing set functions
-            System.out.println("Changing data, values after set functions: ");
-            saleData.setProductNameSold("Cheetos");
-            saleData.setPriceSold(4.99);
-            saleData.setSlotSold("E8");
-
-            System.out.println("New product name: " + saleData.getProductNameSold());
-            System.out.println("New price: "  + saleData.getPriceSold());
-            System.out.println("New slot: " + saleData.getSlotSold());
-
-            //Testing VendingMachine functions
-            VendingMachine funcTest = new VendingMachine();
-
-            System.out.println("Testing verifyStock function: " + funcTest.verifyStock("E1") + " units needed.");
-            System.out.println("Testing verifyExpiration function: is the item expired? " + funcTest.verifyExpiration("E1"));
-
-            //testing Customer functions
-            Customer changeTest = new Customer();
-            changeTest.customerOrder("E1", 2.50);
-            */
         }
     }
 }

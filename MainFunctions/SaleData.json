@@ -1,52 +1,67 @@
 [
-    {"06/12/2022 11:39:08": {
+    {"12/06/2022 11:39:08": {
         "price": "$2.50",
         "slot": "D5",
         "productName": "Famous Amos Double Chocolate Chip"
     }},
-    {"06/12/2022 13:21:52": {
+    {"12/06/2022 13:21:52": {
         "price": "$1.25",
         "slot": "D7",
         "productName": "Miss Vickie's Jalapeno"
     }},
-    {"06/12/2022 13:23:43": {
+    {"12/06/2022 13:23:43": {
         "price": "$1.75",
         "slot": "D8",
         "productName": "Bon Appetit Blueberry Muffin"
     }},
-    {"06/12/2022 13:24:47": {
+    {"12/06/2022 13:24:47": {
         "price": "$1.49",
         "slot": "B3",
         "productName": "Oven Baked Cheddar & Sour Cream Ruffles"
     }},
-    {"06/12/2022 13:25:52": {
+    {"12/06/2022 13:25:52": {
         "price": "$1.65",
         "slot": "E8",
         "productName": "Planters Salted Peanuts"
     }},
-    {"06/12/2022 13:27:41": {
+    {"12/06/2022 13:27:41": {
         "price": "$2.50",
         "slot": "D5",
         "productName": "Famous Amos Double Chocolate Chip"
     }},
-    {"06/12/2022 13:28:43": {
+    {"12/06/2022 13:28:43": {
         "price": "$1.65",
         "slot": "C1",
         "productName": "Baby Ruth"
     }},
-    {"06/12/2022 13:38:50": {
+    {"12/06/2022 13:38:50": {
         "price": "$1.79",
         "slot": "A4",
         "productName": "Takis Fuego"
     }},
-    {"06/12/2022 13:40:42": {
+    {"12/06/2022 13:40:42": {
         "price": "$1.45",
         "slot": "C2",
         "productName": "Starburst Original"
     }},
-    {"06/12/2022 19:48:22": {
+    {"12/06/2022 19:48:22": {
         "price": "$1.49",
         "slot": "B3",
         "productName": "Oven Baked Cheddar & Sour Cream Ruffles"
+    }},
+    {"12/06/2022 19:56:07": {
+        "price": "$1.59",
+        "slot": "A3",
+        "productName": "Flamin' Hot Funyuns"
+    }},
+    {"12/06/2022 20:29:35": {
+        "price": "$1.29",
+        "slot": "A1",
+        "productName": "Crunchy Cheetos"
+    }},
+    {"12/06/2022 20:55:48": {
+        "price": "$1.80",
+        "slot": "B8",
+        "productName": "Planters Spicy Nuts & Cajun Sticks Trail Mix"
     }}
 ]
