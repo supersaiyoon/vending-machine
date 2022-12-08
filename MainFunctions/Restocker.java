@@ -10,6 +10,9 @@ public class Restocker {
         VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
         int i = 1;
         char letter = 'A';
+        System.out.println("Items needed to fill machine:");
+        System.out.println("------------------------------------------------");
+        
         do {
             while (i <= 8) {
                 String let = String.valueOf(letter);
@@ -162,8 +165,6 @@ public class Restocker {
                     break;
                 case 2:
                     clearConsole();
-                    System.out.println("Items needed to fill machine:");
-                    System.out.println("------------------------------------------------");
                     checklist();
 
                     int restockChoice;
@@ -254,9 +255,15 @@ public class Restocker {
                             keyNum = Integer.parseInt(userInput);
                         }
 
-                        // Delete task from map.
-                        taskMap.remove(keyNum);
+                        // Delete task from map and update JSON file.
+                        String[] newProductArr = taskMap.remove(keyNum);
                         stringMap.remove(keyNum);
+
+                        String slot = newProductArr[0];
+                        vendingMachineSacramento.setSlotQty(slot, 15);
+                        vendingMachineSacramento.setSlotProductName(slot, newProductArr[1]);
+                        vendingMachineSacramento.setSlotPrice(slot, Double.parseDouble(newProductArr[2]));
+                        vendingMachineSacramento.setSlotExpDate(slot, newProductArr[3]);
                     }
                     break;
                 case 4:
