@@ -10,25 +10,25 @@
         "active": "0",
         "slot": {
             "E1": {
-                "quantity": 15,
+                "quantity": 1,
                 "price": 1.99,
                 "productName": "Pretzels",
                 "expDate": "1123"
             },
             "E2": {
-                "quantity": 15,
+                "quantity": 5,
                 "price": 1.45,
                 "productName": "Chex Mix Traditional",
                 "expDate": "0323"
             },
             "C1": {
-                "quantity": 15,
+                "quantity": 9,
                 "price": 1.65,
                 "productName": "Baby Ruth",
                 "expDate": "1223"
             },
             "E3": {
-                "quantity": 15,
+                "quantity": 4,
                 "price": 2.1,
                 "productName": "Chocolate Chip Clif Bar",
                 "expDate": "0223"
@@ -49,22 +49,22 @@
                 "quantity": 15,
                 "price": 1.99,
                 "productName": "Pretzel",
-                "expDate": "1223"
+                "expDate": "1221"
             },
             "C3": {
-                "quantity": 15,
+                "quantity": 3,
                 "price": 1.95,
                 "productName": "Snickers",
                 "expDate": "1223"
             },
             "E5": {
-                "quantity": 15,
+                "quantity": 12,
                 "price": 2,
                 "productName": "Oreo Cookies",
                 "expDate": "0523"
             },
             "A2": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 1.99,
                 "productName": "Test",
                 "expDate": "1223"
@@ -73,7 +73,7 @@
                 "quantity": 15,
                 "price": 1.5,
                 "productName": "Welch's Fruit Snacks",
-                "expDate": "0623"
+                "expDate": "0620"
             },
             "E6": {
                 "quantity": 15,
@@ -297,7 +297,7 @@
                 "expDate": "1132"
             },
             "A1": {
-                "quantity": 15,
+                "quantity": 13,
                 "price": 2.85,
                 "productName": "Starbucks Mocha Frappuccino",
                 "expDate": "0323"
