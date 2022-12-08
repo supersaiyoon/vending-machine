@@ -109,6 +109,18 @@ class Restocker {
         return isExpired;
     }
 
+    public static void clearConsole() {
+        System.out.print("\033\143");
+    }
+
+    public static void pressContinue() {
+        System.out.print("\nPress ENTER to continue...");
+        
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+        scanner.close();
+    }
+
     public static void main(String args[]) throws Exception {
         VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
         Scanner input = new Scanner(System.in);
