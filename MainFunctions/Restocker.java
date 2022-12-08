@@ -63,8 +63,8 @@ class Restocker {
         VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
         int i = 1;
         char letter = 'A';
-        System.out.println("\nExpired Items list");
-        System.out.println("------------------------------------------------");
+        System.out.println("\nExpired Items list, please replace the following");
+        System.out.println("-------------------------------------------------------------");
         do
         {
             while(i <= 8) {
@@ -77,7 +77,7 @@ class Restocker {
                 if (!exp)
                     i++;
                 else {
-                    System.out.println(slot+" "+name+" is expired");
+                    System.out.println("EXPIRED: " + slot+" "+name);
                     i++;
                 }
             }
@@ -135,7 +135,7 @@ class Restocker {
             System.out.println("[1] Check expired items ");
             System.out.println("[2] Check if item quantities are full ");
             System.out.println("[3] Replace item in vending machine ");
-            System.out.println("[4] Exit Restocker Interface ");
+            System.out.println("[4] EXIT ");
             System.out.println("Enter your choice: ");
 
 
