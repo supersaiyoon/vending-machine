@@ -1,8 +1,11 @@
 package DataManagementTool;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -40,7 +43,8 @@ public class DataManagementTool {
 
     public static void pressContinue() {
         System.out.print("\nPress ENTER to continue...");
-        getInput();
+
+        scannerObj.nextLine();
     }
 
     public static String convertToTitleCase(String text) {
@@ -69,36 +73,89 @@ public class DataManagementTool {
     }
 
     public static void sendRestockingInstructions() {
-        
-        do {
-            clearConsole();
-            System.out.print("Enter slot number to replace: ");
-            String slot = getInput().toUpperCase();
+        BufferedWriter bw = null;
+        try {
+            File outfile = new File("DataManagementTool\\RestockerInstructions.txt");
 
-            clearConsole();
-            System.out.print("Enter product name to replace slot " + slot + ": ");
-            String productName = convertToTitleCase(getInput());
-
-            clearConsole();
-            System.out.print("Enter quantity to place in slot " + slot + ": ");
-            String quantity = getInput();
-
-            String output = slot + "," + productName + "," + quantity;
-
-            try {
-                FileWriter writer = new FileWriter("RestockerInstructions.txt");
-                writer.write(output);
-                writer.close();
+            // Ensures that file is created if not present.
+            if (!outfile.exists()) {
+                outfile.createNewFile();
             }
-            catch (IOException e) {
-                System.out.println("Error occurred with writing to the file.");
-                e.printStackTrace();
-            }
+
+            FileWriter fw = new FileWriter(outfile);
+            bw = new BufferedWriter(fw);
+
+            String menuChoice = "y";
+            String slot = "NO INPUT";
+            String[] slotsArr = {"A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8",
+                                "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8",
+                                "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8",
+                                "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8",
+                                "E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8"};
             
-            System.out.print("Do you have more instructions to add (Y/N)? ");
-            userInput = getInput();
+            // Verify that slot exists before accepting product inputs.
+            do {
+                boolean isSlot = false;
+                
+                while (!isSlot) {
+                    clearConsole();
+                    System.out.print("Enter slot number to replace: ");
+                    slot = getInput().toUpperCase();                    
+
+                    if (!Arrays.asList(slotsArr).contains(slot)) {
+                        System.out.println("\nSlot doesn't exist. Try again.");
+                        pressContinue();
+                    }
+                    else {
+                        isSlot = true;
+                    }
+                }
+    
+                clearConsole();
+                System.out.print("Enter product name to replace slot " + slot + ": ");
+                String productName = convertToTitleCase(getInput());
+    
+                clearConsole();
+                System.out.print("Enter price of " + productName + ": ");
+                String price = getInput();
+
+                clearConsole();
+                System.out.print("Enter expiration date of " + productName + " (MM/YY): ");
+                String expDate = getInput();
+
+                // Remove '/' from expDate.
+                String[] tempArr = expDate.split("/");
+                String month = tempArr[0];
+                String year = tempArr[1];
+                expDate = month + year;
+    
+                String output = slot + "," + productName + "," + price + "," + expDate;
+    
+                bw.write(output + "\n");
+                System.out.println("\nInstructions recorded successfully.\n");
+                
+                System.out.print("Do you have more instructions to add (Y/N)? ");
+                menuChoice = getInput();
+            }
+            while (menuChoice.equals("y".toLowerCase()));
+
+            clearConsole();
+            System.out.println("Instructions sent to restocker.");
+            pressContinue();
         }
-        while (userInput != "n".toLowerCase());
+        catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        finally {
+            try {
+                if (bw != null) {
+                    bw.close();
+                }
+            }
+            catch (Exception ex) {
+                System.out.println("Error closing BufferedWriter " + ex);
+            }
+        }
     }
 
     public static void printMachineList() {
