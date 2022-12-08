@@ -10,13 +10,13 @@
         "active": "0",
         "slot": {
             "E1": {
-                "quantity": 15,
+                "quantity": 10,
                 "price": 1.99,
                 "productName": "Pretzels",
                 "expDate": "1123"
             },
             "E2": {
-                "quantity": 15,
+                "quantity": 9,
                 "price": 1.45,
                 "productName": "Chex Mix Traditional",
                 "expDate": "0323"
@@ -82,7 +82,7 @@
                 "expDate": "0123"
             },
             "A3": {
-                "quantity": 15,
+                "quantity": 7,
                 "price": 1.59,
                 "productName": "Flamin' Hot Funyuns",
                 "expDate": "0323"
