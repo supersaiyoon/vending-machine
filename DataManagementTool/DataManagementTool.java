@@ -1,5 +1,8 @@
 package DataManagementTool;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -40,8 +43,62 @@ public class DataManagementTool {
         getInput();
     }
 
-    public static void sendRestockingInstructions() {
+    public static String convertToTitleCase(String text) {
+        if (text == null || text.isEmpty()) {
+            return text;
+        }
+    
+        StringBuilder converted = new StringBuilder();
+    
+        boolean convertNext = true;
+        for (char ch : text.toCharArray()) {
+            if (Character.isSpaceChar(ch)) {
+                convertNext = true;
+            }
+            else if (convertNext) {
+                ch = Character.toTitleCase(ch);
+                convertNext = false;
+            }
+            else {
+                ch = Character.toLowerCase(ch);
+            }
+            converted.append(ch);
+        }
+    
+        return converted.toString();
+    }
 
+    public static void sendRestockingInstructions() {
+        
+        do {
+            clearConsole();
+            System.out.print("Enter slot number to replace: ");
+            String slot = getInput().toUpperCase();
+
+            clearConsole();
+            System.out.print("Enter product name to replace slot " + slot + ": ");
+            String productName = convertToTitleCase(getInput());
+
+            clearConsole();
+            System.out.print("Enter quantity to place in slot " + slot + ": ");
+            String quantity = getInput();
+
+            String output = slot + "," + productName + "," + quantity;
+
+            try {
+                FileWriter writer = new FileWriter("RestockerInstructions.txt");
+                writer.write(output);
+                writer.close();
+            }
+            catch (IOException e) {
+                System.out.println("Error occurred with writing to the file.");
+                e.printStackTrace();
+            }
+            
+            System.out.print("Do you have more instructions to add (Y/N)? ");
+            userInput = getInput();
+        }
+        while (userInput != "n".toLowerCase());
     }
 
     public static void printMachineList() {

@@ -6,11 +6,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 import java.io.File;
-//import java.text.NumberFormat;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-//import javax.swing.text.NumberFormatter;
 
 public class KeyPadGUI extends JFrame implements ActionListener {
     JFrame keypadFrame;
@@ -315,77 +313,3 @@ public class KeyPadGUI extends JFrame implements ActionListener {
     }
 
 }
-/*
-class CustomerOrderGUI{
-    CustomerOrderGUI(String slot){
-        //New Frame called when ok is pressed
-        JFrame frame = new JFrame();
-        frame.setVisible(true);
-        frame.setSize(600, 700);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Layout
-        frame.setLayout(new GridBagLayout());
-        GridBagConstraints w = new GridBagConstraints();
-        w.insets = new Insets(1,1,1,1);
-        frame.getContentPane().setBackground(Color.GRAY);
-        Font font = new Font("Verdana", Font.BOLD, 55);
-        Font button = new Font("Verdana", Font.BOLD, 25);
-        //Labels
-        JLabel Your = new JLabel("Cash");
-        JLabel change1 = new JLabel("-");
-        JLabel is = new JLabel("Change");
-        JLabel change = new JLabel("2.00");
-        JLabel Your1 = new JLabel("Your ");
-        JLabel order = new JLabel(" order");
-        JLabel is1 = new JLabel("  is");
-        JLabel slot1 = new JLabel(" " + slot);
-        JLabel Divider = new JLabel("   --");
-        //Buttons
-        JButton back = new JButton("Back");
-        JButton ok = new JButton("Ok");
-
-        NumberFormat longFormat = NumberFormat.getIntegerInstance();
-
-        NumberFormatter numberFormatter = new NumberFormatter(longFormat);
-        numberFormatter.setValueClass(Double.class);
-        numberFormatter.setAllowsInvalid(true); //this is the key!!
-        numberFormatter.setMinimum(0l); //Optional
-
-        JFormattedTextField field = new JFormattedTextField(numberFormatter);
-
-        //Grid format so having words seperate makes it easier to format
-        w.gridx = 0; w.gridy = 0; frame.add(Your,w); Your.setFont(font);
-        w.gridx = 1; w.gridy = 0; frame.add(change1,w); change1.setFont(font);
-        w.gridx = 2; w.gridy = 0; frame.add(is,w); is.setFont(font);
-        w.gridx = 0; w.gridy = 1; w.fill = GridBagConstraints.HORIZONTAL; frame.add(field,w); field.setFont(font);
-        w.gridx = 2; w.gridy = 1; frame.add(change,w); change.setFont(font);
-
-        w.gridx = 1; w.gridy = 2; frame.add(Divider,w); Divider.setFont(font);
-        w.gridx = 0; w.gridy = 3; frame.add(Your1,w); Your1.setFont(font);
-        w.gridx = 1; w.gridy = 3; frame.add(order,w); order.setFont(font);
-        w.gridx = 2; w.gridy = 3; frame.add(is1,w); is1.setFont(font);
-        w.gridx = 1; w.gridy = 4; frame.add(slot1,w); slot1.setFont(font);
-
-        w.gridx = 0; w.gridy = 4; frame.add(back,w); back.setFont(button); back.setBackground(Color.RED);
-        w.gridx = 2; w.gridy = 4; frame.add(ok,w); ok.setFont(button); ok.setBackground(Color.GREEN);
-        //Buttons
-        ActionListener buttonListener = new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                Object o = ae.getSource();
-                
-                if(o == back || o == ok){  // Return to keypad after purchase or just want to go back.
-                    try {
-                        new KeyPadGUI();
-                        frame.setVisible(false);
-                    } catch (Exception e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-                }
-            }
-        };
-        ok.addActionListener(buttonListener);
-        back.addActionListener(buttonListener);
-    }
-}*/
