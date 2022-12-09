@@ -189,8 +189,8 @@ public class DataManagementTool {
         printMachineList();
         System.out.print("> ");
 
-        int userChoice = Integer.parseInt(getInput());
-        String machineName = "vendingMachine_" + machineNames[userChoice - 1];
+        String userChoice = getInput();
+        String machineName = "vendingMachine_" + machineNames[Integer.parseInt(userChoice) - 1];
 
         VendingMachineFile file = new VendingMachineFile(machineName);
 
@@ -219,7 +219,7 @@ public class DataManagementTool {
         String labelPrice = "PRICE";
         String line = "-------------------------------------------------------------------------";
 
-        System.out.println("Checking inventory in " + machineNames[userChoice - 1] + "...");
+        System.out.println("Checking inventory in " + machineNames[Integer.parseInt(userChoice) - 1] + "...");
 
         // Print column titles
         System.out.println(line);
@@ -279,27 +279,28 @@ public class DataManagementTool {
         pressContinue();
     }
 
-    public static void viewSaleData() {
+    public static void viewSaleData() throws Exception{
         printMachineList();
 
         System.out.print("> ");
-        int userChoice = Integer.parseInt(getInput());
+        String userChoice = getInput();
 
-        try {
+
             switch (userChoice) {
-                case 1:
+                case "1":
                     viewSaleDataSacramento();
                     break;
-                case 2:
+                case "2":
                     viewSaleDataFolsom();
                     break;
+                default:
+                    System.out.println("\nERROR: Unaccepted input.\n");
             }    
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        
 
     }
+        
+
+
 
     public static String getInput() {
         String input = scannerObj.nextLine();
@@ -317,7 +318,7 @@ public class DataManagementTool {
         System.out.print("> ");
     }
 
-    public static void executeDataManagementTool() {
+    public static void executeDataManagementTool() throws Exception {
         do {
             displayMainMenu();
             userInput = getInput();
@@ -334,12 +335,14 @@ public class DataManagementTool {
                     break;
                 case "4":
                     exitProgram();
+                default:
+                    System.out.println("\nERROR: Unaccepted input\n");
             }
         }
         while (userInput != "4");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         executeDataManagementTool();
     }
 }

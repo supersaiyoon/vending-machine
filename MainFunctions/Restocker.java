@@ -12,7 +12,7 @@ public class Restocker {
         char letter = 'A';
         System.out.println("Items needed to fill machine:");
         System.out.println("------------------------------------------------");
-        
+
         do {
             while (i <= 8) {
                 String let = String.valueOf(letter);
@@ -130,7 +130,7 @@ public class Restocker {
         final String os = System.getProperty("os.name");
         if (os.contains("Windows")) {
             try {
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();                
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             }
             catch (Exception e) {
                 // TODO: handle exception
@@ -138,17 +138,17 @@ public class Restocker {
         }
         else {
             try {
-                Runtime.getRuntime().exec("clear");    
+                Runtime.getRuntime().exec("clear");
             }
             catch (Exception e) {
                 // TODO: handle exception
             }
-        }            
+        }
     }
 
     public static void pressContinue() {
         System.out.print("\nPress ENTER to continue...");
-        
+
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
@@ -160,7 +160,7 @@ public class Restocker {
         Scanner Input3 = new Scanner(System.in);
 
 
-        int choice;
+        String choice;
         while (true) {
             clearConsole();
             System.out.println("Restocker Interface Main Menu\n");
@@ -172,45 +172,45 @@ public class Restocker {
             System.out.print("\nEnter your choice: ");
 
 
-            choice = input.nextInt();
+            choice = input.nextLine();
 
             switch (choice) {
-                case 1:
+                case "1":
                     clearConsole();
                     expired();
                     pressContinue();
                     break;
-                case 2:
+                case "2":
                     clearConsole();
                     checklist();
 
-                    int restockChoice;
+                    String restockChoice;
                     System.out.println("\nRestock items to max quantity?\n");
                     System.out.println("\t[1] Yes\n");
                     System.out.println("\t[2] No\n");
                     System.out.print("> ");
-                    restockChoice = input.nextInt();
+                    restockChoice = input.nextLine();
 
-                    if (restockChoice == 1) {
+                    if (restockChoice == "1") {
                         refill();
                         System.out.println("Items refilled, returning to Main Menu... \n");
                         break;
                     }
-                    else if(restockChoice ==2) {
+                    else if(restockChoice == "2") {
                         System.out.println("Returning to Main Menu... \n");
                         break;
                     }
                     else {
-                        System.out.println("ERROR: Unaccepted input, please insert [1] or [2].");
+                        System.out.println("\nERROR: Unaccepted input, please insert [1] or [2].");
                         break;
                     }
-                case 3:
+                case "3":
                     clearConsole();
                     String line = "------------------------------------------------------------------------------------";
 
                     // Print list of tasks from RestockerInstructions.txt
                     File fileObj = new File("DataManagementTool\\RestockerInstructions.txt");
-                    
+
                     if (!fileObj.exists()) {
                         System.out.println("No instructions available at this time.");
                         pressContinue();
@@ -222,7 +222,7 @@ public class Restocker {
                     int taskNum = 1;
                     Map<Integer, String[]> taskMap = new HashMap<Integer, String[]>();  // Contains tasks for printing.
                     Map<Integer, String> stringMap = new HashMap<Integer, String>();    // Tracks unfinished tasks that need to be written to RestockerInstructions.txt.
-                    
+
                     while (fileScanner.hasNextLine()) {
                         fileLine = fileScanner.nextLine();
                         stringMap.put(taskNum, fileLine);
@@ -283,15 +283,15 @@ public class Restocker {
                         vendingMachineSacramento.setSlotExpDate(slot, newProductArr[3]);
                     }
                     break;
-                case 4:
+                case "4":
                     clearConsole();
                     System.out.println("Replace item in Vending Machine?\n");
                     System.out.println("\t[1] Yes\n");
                     System.out.println("\t[2] No\n");
                     System.out.print("> ");
-                    int replaceChoice = input.nextInt();
+                    String replaceChoice = input.nextLine();
 
-                    if (replaceChoice == 1) {
+                    if (replaceChoice == "1") {
                         int qty = 15;
                         clearConsole();
                         System.out.println("Which slot?");
@@ -313,15 +313,15 @@ public class Restocker {
                         System.out.println(slot + " replaced. Thank you!\n");
                         break;
                     }
-                    else if (replaceChoice == 2) {
+                    else if (replaceChoice == "2") {
                         System.out.println("Returning to Main Menu... \n");
                         break;
                     }
                     else {
-                        System.out.println("ERROR: Unaccepted input, please press [1] or [2].\n");
+                        System.out.println("\nERROR: Unaccepted input, please press [1] or [2].\n");
                         break;
                     }
-                case 5:
+                case "5":
                     System.out.println("Exiting Restocker Interface...");
                     input.close();
                     Input2.close();
@@ -330,7 +330,7 @@ public class Restocker {
                     break;
 
                 default:
-                    System.out.println("This is not a valid input, please select a valid input");
+                    System.out.println("\nThis is not a valid input, please select a valid input\n");
                     break;
             }
         }

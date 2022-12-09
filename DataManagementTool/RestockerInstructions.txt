@@ -1,2 +1,0 @@
-E1,Dehydrated Apple Slices,3.99,0123
-E2,Gummy Bears,3.99,1224
