@@ -151,9 +151,9 @@ public class DataManagementTool {
                 while(!scannerObj.hasNext("\\d\\d/\\d\\d")){
 
                     System.out.println("ERROR: Unaccepted input, please follow MM/YY format: ");
-                    scannerObj.next();
+                    scannerObj.nextLine();
                 }
-                String expDate = scannerObj.next();
+                String expDate = scannerObj.nextLine();
 
 
 
@@ -169,7 +169,7 @@ public class DataManagementTool {
                 System.out.println("\nInstructions recorded successfully.\n");
                 
                 System.out.print("Do you have more instructions to add (Y/N)? ");
-                menuChoice = scannerObj.next();
+                menuChoice = scannerObj.nextLine();
             }
             while (menuChoice.equals("y".toLowerCase()));
 
@@ -206,8 +206,16 @@ public class DataManagementTool {
         printMachineList();
         System.out.print("> ");
 
-        String userChoice = getInput();
-        String machineName = "vendingMachine_" + machineNames[Integer.parseInt(userChoice) - 1];
+        int userChoice = 0;
+        while (true) {
+            try {
+                userChoice = Integer.parseInt(getInput());
+                break; // will only get to here if input was an int
+            } catch (NumberFormatException ignore) {
+                System.out.println("ERROR: Invalid input, please enter valid input: ");
+            }
+        }
+        String machineName = "vendingMachine_" + machineNames[userChoice - 1];
 
         VendingMachineFile file = new VendingMachineFile(machineName);
 
@@ -236,7 +244,7 @@ public class DataManagementTool {
         String labelPrice = "PRICE";
         String line = "-------------------------------------------------------------------------";
 
-        System.out.println("Checking inventory in " + machineNames[Integer.parseInt(userChoice) - 1] + "...");
+        System.out.println("Checking inventory in " + machineNames[userChoice - 1] + "...");
 
         // Print column titles
         System.out.println(line);
