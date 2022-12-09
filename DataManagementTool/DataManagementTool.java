@@ -33,7 +33,6 @@ public class DataManagementTool {
     public static Scanner scannerObj = new Scanner(System.in);
 
     public static void clearConsole() {
-        //System.out.print("\033\143");
         final String os = System.getProperty("os.name");
         if (os.contains("Windows")) {
             try {
@@ -153,7 +152,7 @@ public class DataManagementTool {
                     System.out.println("ERROR: Unaccepted input, please follow MM/YY format: ");
                     scannerObj.next();
                 }
-                String expDate = scannerObj.next();
+                String expDate = scannerObj.nextLine();
 
 
 
@@ -169,7 +168,8 @@ public class DataManagementTool {
                 System.out.println("\nInstructions recorded successfully.\n");
                 
                 System.out.print("Do you have more instructions to add (Y/N)? ");
-                menuChoice = scannerObj.next();
+                menuChoice = scannerObj.nextLine();
+                
             }
             while (menuChoice.equals("y".toLowerCase()));
 
