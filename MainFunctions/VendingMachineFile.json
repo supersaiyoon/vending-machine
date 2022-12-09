@@ -10,31 +10,31 @@
         "active": "0",
         "slot": {
             "E1": {
-                "quantity": 10,
+                "quantity": 15,
                 "price": 1.99,
-                "productName": "Pretzels",
-                "expDate": "1123"
+                "productName": "Goldfish",
+                "expDate": "1221"
             },
             "E2": {
-                "quantity": 9,
-                "price": 1.45,
-                "productName": "Chex Mix Traditional",
-                "expDate": "0323"
+                "quantity": 0,
+                "price": 3.99,
+                "productName": "Gummy Bears",
+                "expDate": "1224"
             },
             "C1": {
-                "quantity": 15,
+                "quantity": 7,
                 "price": 1.65,
                 "productName": "Baby Ruth",
                 "expDate": "1223"
             },
             "E3": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 2.1,
                 "productName": "Chocolate Chip Clif Bar",
                 "expDate": "0223"
             },
             "C2": {
-                "quantity": 15,
+                "quantity": 11,
                 "price": 1.45,
                 "productName": "Starburst Original",
                 "expDate": "1223"
@@ -46,13 +46,13 @@
                 "expDate": "0223"
             },
             "A1": {
-                "quantity": 15,
-                "price": 1.99,
-                "productName": "Pretzel",
-                "expDate": "1223"
+                "quantity": 3,
+                "price": 2.99,
+                "productName": "Pretzels",
+                "expDate": "0123"
             },
             "C3": {
-                "quantity": 15,
+                "quantity": 1,
                 "price": 1.95,
                 "productName": "Snickers",
                 "expDate": "1223"
@@ -73,7 +73,7 @@
                 "quantity": 15,
                 "price": 1.5,
                 "productName": "Welch's Fruit Snacks",
-                "expDate": "0623"
+                "expDate": "0622"
             },
             "E6": {
                 "quantity": 15,
@@ -82,7 +82,7 @@
                 "expDate": "0123"
             },
             "A3": {
-                "quantity": 7,
+                "quantity": 15,
                 "price": 1.59,
                 "productName": "Flamin' Hot Funyuns",
                 "expDate": "0323"
@@ -133,13 +133,13 @@
                 "quantity": 15,
                 "price": 1.19,
                 "productName": "Garden Salsa Sun Chips",
-                "expDate": "0323"
+                "expDate": "0322"
             },
             "C8": {
                 "quantity": 15,
                 "price": 1.8,
                 "productName": "Twix",
-                "expDate": "1223"
+                "expDate": "1221"
             },
             "A7": {
                 "quantity": 15,
@@ -163,7 +163,7 @@
                 "quantity": 15,
                 "price": 1.35,
                 "productName": "Hawaiian Luau BBQ Kettle Chips",
-                "expDate": "0423"
+                "expDate": "0422"
             },
             "B1": {
                 "quantity": 15,

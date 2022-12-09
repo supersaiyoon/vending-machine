@@ -27,6 +27,7 @@ public class SaleDataFile {
 
         String json = "";
         File jsonFile = new File(fileName);
+
         if (!jsonFile.exists()) {
             throw new NullPointerException("Cannot find JSON file.");
         }
