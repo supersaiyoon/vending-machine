@@ -3,9 +3,7 @@ package MainFunctions;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 public class VendingMachineFile {
     public String fileNameJSON = "MainFunctions/VendingMachineFile.json";    // Just in case we need to change the file name.
@@ -14,15 +12,30 @@ public class VendingMachineFile {
     public JSONObject addressObj;           // Use methods on this to modify vending machine address info.
     public JSONObject slotObj;              // Use methods on this to modify vending machine slot.
 
-    public VendingMachineFile(String vendingMachineName) {
-        String fileName = "VendingMachineFile.json";
-        InputStream is = VendingMachineFile.class.getResourceAsStream(fileName);
+    public JSONObject activeObj;
 
-        if (is == null) {
+    public VendingMachineFile(String vendingMachineName) {
+        String fileName = "MainFunctions/VendingMachineFile.json";
+
+        String json = "";
+        File jsonFile = new File(fileName);
+
+        if (!jsonFile.exists()) {
             throw new NullPointerException("Cannot find JSON file.");
         }
 
-        JSONTokener tokener = new JSONTokener(is);
+        try (BufferedReader reader = new BufferedReader(new FileReader(jsonFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                json += line;
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        JSONTokener tokener = new JSONTokener(json);
         tokenObj = new JSONObject(tokener);
         vendingMachineObj = tokenObj.getJSONObject(vendingMachineName);
         addressObj = vendingMachineObj.getJSONObject("address");
@@ -38,6 +51,14 @@ public class VendingMachineFile {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setActive(){
+            vendingMachineObj.put("active", "1");
+    }
+
+    public void setInActive(){
+        vendingMachineObj.put("active", "0");
     }
 
     public String getAddress() {

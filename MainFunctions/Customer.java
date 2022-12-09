@@ -15,7 +15,8 @@ public class Customer {
         //for returning proper rounded change format #.## instead of massive doubles
         DecimalFormat df = new DecimalFormat("$#,##0.00");
 
-        int newItemQty = vendingMachineSacramento.getSlotQty(slotNumber);
+        int newItemQty= vendingMachineSacramento.getSlotQty(slotNumber);
+
         double itemPrice = vendingMachineSacramento.getSlotPrice(slotNumber);
         double moneyDifference = itemPrice - moneyInsert;
 
@@ -28,7 +29,6 @@ public class Customer {
 
             }
 
-            vendingMachineSacramento.setSlotQty(slotNumber, newItemQty-1);
             double changeReturn = moneyInsert - itemPrice;
 
             if (changeReturn ==0){
@@ -40,7 +40,10 @@ public class Customer {
                 System.out.println("Thank you, your change today is: " + df.format(changeReturn));
 
             }
-            return changeReturn;
+        vendingMachineSacramento.setSlotQty(slotNumber, newItemQty-1);
+
+
+        return changeReturn;
 
 
     }
@@ -50,7 +53,16 @@ public class Customer {
         Scanner getMoney = new Scanner(System.in);
         System.out.println("Enter additional change: ");
 
-        double setMoney = Double.parseDouble(getMoney.nextLine());
+        double setMoney = 0;
+        while (true) {
+            System.out.println("Please follow ##.## format:");
+            try {
+                setMoney = Double.parseDouble(getMoney.nextLine());
+                break; // will only get to here if input was a double
+            } catch (NumberFormatException ignore) {
+                System.out.println("ERROR: Invalid input");
+            }
+        }
         double newChange;
 
         newChange = setMoney+money;

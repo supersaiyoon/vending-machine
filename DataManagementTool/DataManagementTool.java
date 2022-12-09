@@ -133,12 +133,29 @@ public class DataManagementTool {
                 String productName = convertToTitleCase(getInput());
     
                 clearConsole();
-                System.out.print("Enter price of " + productName + ": ");
-                String price = getInput();
+                System.out.print("Enter price of " + productName + ", ");
+                double price = 0;
+                while (true) {
+                    System.out.println("please follow ##.## format:");
+                    try {
+                        price = Double.parseDouble(getInput());
+                        break; // will only get to here if input was a double
+                    } catch (NumberFormatException ignore) {
+                        System.out.println("ERROR: Invalid input");
+                    }
+                }
 
                 clearConsole();
                 System.out.print("Enter expiration date of " + productName + " (MM/YY): ");
-                String expDate = getInput();
+                //String expDate = getInput();
+                while(!scannerObj.hasNext("\\d\\d/\\d\\d")){
+
+                    System.out.println("ERROR: Unaccepted input, please follow MM/YY format: ");
+                    scannerObj.next();
+                }
+                String expDate = scannerObj.next();
+
+
 
                 // Remove '/' from expDate.
                 String[] tempArr = expDate.split("/");
@@ -152,7 +169,7 @@ public class DataManagementTool {
                 System.out.println("\nInstructions recorded successfully.\n");
                 
                 System.out.print("Do you have more instructions to add (Y/N)? ");
-                menuChoice = getInput();
+                menuChoice = scannerObj.next();
             }
             while (menuChoice.equals("y".toLowerCase()));
 

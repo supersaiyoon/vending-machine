@@ -113,17 +113,26 @@ public class OrderInputPerformed implements ActionListener {
             Customer custObj = new Customer();
             VendingMachine classObj = new VendingMachine();
 
-            int newItemQty = vendingMachineSacramento.getSlotQty(slot);
+            int itemQty = vendingMachineSacramento.getSlotQty(slot);
 
             //while expiration date has not passed
-            if (!classObj.verifyExpiration(slot) && newItemQty > 0) {
+            if (!classObj.verifyExpiration(slot) && itemQty > 0) {
                 System.out.println("You want to purchase " + vendingMachineSacramento.getSlotProductName(slot));
                 System.out.println("Please enter " + df.format(vendingMachineSacramento.getSlotPrice(slot)));
                 System.out.println();
 
                 Scanner getMoney = new Scanner(System.in);
                 System.out.println("Please insert money: ");
-                double moneyInsert = Double.parseDouble(getMoney.nextLine());
+                double moneyInsert = 0;
+                while (true) {
+                    System.out.println("Please follow ##.## format:");
+                    try {
+                        moneyInsert = Double.parseDouble(getMoney.nextLine());
+                        break; // will only get to here if input was a double
+                    } catch (NumberFormatException ignore) {
+                        System.out.println("ERROR: Invalid input");
+                    }
+                }
 
                 //get slot from keypad, money from terminal
                 custObj.customerOrder(slot, moneyInsert);
