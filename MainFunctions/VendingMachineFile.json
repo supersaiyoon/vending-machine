@@ -10,10 +10,10 @@
         "active": "0",
         "slot": {
             "E1": {
-                "quantity": 15,
+                "quantity": 13,
                 "price": 1.99,
-                "productName": "Goldfish",
-                "expDate": "1221"
+                "productName": "Frosted Flakes",
+                "expDate": "1223"
             },
             "E2": {
                 "quantity": 0,
@@ -22,19 +22,19 @@
                 "expDate": "1224"
             },
             "C1": {
-                "quantity": 7,
+                "quantity": 12,
                 "price": 1.65,
                 "productName": "Baby Ruth",
                 "expDate": "1223"
             },
             "E3": {
-                "quantity": 14,
+                "quantity": 1,
                 "price": 2.1,
                 "productName": "Chocolate Chip Clif Bar",
                 "expDate": "0223"
             },
             "C2": {
-                "quantity": 11,
+                "quantity": 0,
                 "price": 1.45,
                 "productName": "Starburst Original",
                 "expDate": "1223"
@@ -46,13 +46,13 @@
                 "expDate": "0223"
             },
             "A1": {
-                "quantity": 3,
-                "price": 2.99,
-                "productName": "Pretzels",
-                "expDate": "0123"
+                "quantity": 12,
+                "price": 1,
+                "productName": "Test",
+                "expDate": "1"
             },
             "C3": {
-                "quantity": 1,
+                "quantity": 15,
                 "price": 1.95,
                 "productName": "Snickers",
                 "expDate": "1223"
@@ -172,7 +172,7 @@
                 "expDate": "0323"
             },
             "D3": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 1.25,
                 "productName": "Skinny Pop Popcorn",
                 "expDate": "0223"

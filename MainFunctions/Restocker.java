@@ -1,5 +1,6 @@
 package MainFunctions;
 
+import DataManagementTool.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -108,6 +109,8 @@ public class Restocker {
         return isExpired;
     }
 
+
+
     public static void writeRestockerInstructions(Map<Integer, String> taskMap) {
         try (FileWriter file = new FileWriter("DataManagementTool/RestockerInstructions.txt")) {
             if (taskMap.isEmpty()) {
@@ -154,13 +157,17 @@ public class Restocker {
     }
 
     public static void main(String args[]) throws Exception {
+
         VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
+        DataManagementTool inputHandler = new DataManagementTool();
+
         Scanner input = new Scanner(System.in);
         Scanner Input2 = new Scanner(System.in);
         Scanner Input3 = new Scanner(System.in);
 
-
         String choice;
+
+        //menu loop
         while (true) {
             clearConsole();
             System.out.println("Restocker Interface Main Menu\n");
@@ -171,15 +178,18 @@ public class Restocker {
             System.out.println("\t[5] Exit Restocker Interface");
             System.out.print("\nEnter your choice: ");
 
-
             choice = input.nextLine();
 
             switch (choice) {
+
+                //check expired items list
                 case "1":
                     clearConsole();
                     expired();
                     pressContinue();
                     break;
+
+               //Get list of items that need to restock to max quantity
                 case "2":
                     clearConsole();
                     checklist();
@@ -191,19 +201,23 @@ public class Restocker {
                     System.out.print("> ");
                     restockChoice = input.nextLine();
 
-                    if (restockChoice == "1") {
-                        refill();
-                        System.out.println("Items refilled, returning to Main Menu... \n");
-                        break;
+                    switch (restockChoice){
+
+                        case "1" :
+                            refill();
+                            System.out.println("Items refilled, returning to Main Menu... \n");
+                            break;
+
+                        case "2" :
+                            System.out.println("Returning to Main Menu... \n");
+                            break;
+                        default:
+                            System.out.println("\nERROR: Unaccepted input, please insert [1] or [2].");
+                            break;
                     }
-                    else if(restockChoice == "2") {
-                        System.out.println("Returning to Main Menu... \n");
-                        break;
-                    }
-                    else {
-                        System.out.println("\nERROR: Unaccepted input, please insert [1] or [2].");
-                        break;
-                    }
+                    break;
+
+                //Receive restocking instructions from management tool
                 case "3":
                     clearConsole();
                     String line = "------------------------------------------------------------------------------------";
@@ -218,6 +232,7 @@ public class Restocker {
                     }
                     Scanner fileScanner = new Scanner(fileObj);
 
+                    //get filename to read from
                     String fileLine = "";
                     int taskNum = 1;
                     Map<Integer, String[]> taskMap = new HashMap<Integer, String[]>();  // Contains tasks for printing.
@@ -283,6 +298,8 @@ public class Restocker {
                         vendingMachineSacramento.setSlotExpDate(slot, newProductArr[3]);
                     }
                     break;
+
+                //Replace items in Vending Machine using slot, name, price, expDate
                 case "4":
                     clearConsole();
                     System.out.println("Replace item in Vending Machine?\n");
@@ -291,36 +308,80 @@ public class Restocker {
                     System.out.print("> ");
                     String replaceChoice = input.nextLine();
 
-                    if (replaceChoice == "1") {
-                        int qty = 15;
-                        clearConsole();
-                        System.out.println("Which slot?");
-                        String slot = Input2.nextLine().toUpperCase();
-                        vendingMachineSacramento.setSlotQty(slot, qty);
+                    switch(replaceChoice) {
 
-                        System.out.println("New product's name?");
-                        String name = Input2.nextLine();
-                        vendingMachineSacramento.setSlotProductName(slot, name);
+                        //begin item replacing process
+                        case "1":
+                            int qty = 15;
+                            String slot = "NO INPUT";
+                            String[] slotsArr = {"A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8",
+                                    "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8",
+                                    "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8",
+                                    "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8",
+                                    "E1", "E2", "E3", "E4", "E5", "E6", "E7", "E8"};
 
-                        System.out.println("Price?");
-                        double price = Input2.nextDouble();
-                        vendingMachineSacramento.setSlotPrice(slot, price);
+                            clearConsole();
 
-                        System.out.println("Expiration date?");
-                        String date = Input3.nextLine();
-                        vendingMachineSacramento.setSlotExpDate(slot, date);
+                            //set new slot
+                            boolean isSlot = false;
+                            do {
+                                clearConsole();
+                                System.out.print("Enter slot key to replace: ");
+                                slot = inputHandler.getInput().toUpperCase();
 
-                        System.out.println(slot + " replaced. Thank you!\n");
-                        break;
+                                if (!Arrays.asList(slotsArr).contains(slot)) {
+                                    System.out.println("\nSlot doesn't exist. Try again.");
+                                    pressContinue();
+                                } else {
+                                    isSlot = true;
+
+                                }
+                            }while (!isSlot);
+
+
+                            //set new product name
+                            System.out.println("New product's name?");
+                            String name = inputHandler.convertToTitleCase(inputHandler.getInput());
+                            vendingMachineSacramento.setSlotProductName(slot, name);
+
+                            //set new price
+                            System.out.println("Price?");
+                            double price = 0;
+                            while (true) {
+                                System.out.println("Please follow ##.## format:");
+                                try {
+                                    price = Double.parseDouble(inputHandler.getInput());
+                                    break; // will only get to here if input was a double
+                                } catch (NumberFormatException ignore) {
+                                    System.out.println("ERROR: Invalid input");
+                                }
+                            }
+                            vendingMachineSacramento.setSlotPrice(slot, price);
+
+                            //set new exp date
+                            System.out.println("Expiration date (mmYY) ?");
+                            String date = Input3.nextLine();
+                            vendingMachineSacramento.setSlotExpDate(slot, date);
+
+                            //reset quantity
+                            vendingMachineSacramento.setSlotQty(slot, 15);
+
+                            System.out.println(slot + " replaced. Thank you!\n");
+                            break;
+
+                        //return to main menu
+                        case "2" :
+                            System.out.println("Returning to Main Menu... \n");
+                            break;
+
+                        //input error handler
+                        default :
+                            System.out.println("\nERROR: Unaccepted input, please press [1] or [2].\n");
+                            break;
                     }
-                    else if (replaceChoice == "2") {
-                        System.out.println("Returning to Main Menu... \n");
-                        break;
-                    }
-                    else {
-                        System.out.println("\nERROR: Unaccepted input, please press [1] or [2].\n");
-                        break;
-                    }
+                    break;
+
+                //Exit restocker interface entirely
                 case "5":
                     System.out.println("Exiting Restocker Interface...");
                     input.close();
@@ -329,6 +390,7 @@ public class Restocker {
                     System.exit(0);
                     break;
 
+                //Input Error handler
                 default:
                     System.out.println("\nThis is not a valid input, please select a valid input\n");
                     break;

@@ -1,32 +1,92 @@
 [
-    {"12/06/2022 11:39:08": {
-        "price": "$2.50",
-        "slot": "D5",
-        "productName": "Famous Amos Double Chocolate Chip"
+    {"12/09/2022 11:41:01": {
+        "price": "$1.45",
+        "slot": "C2",
+        "productName": "Starburst Original"
     }},
-    {"12/06/2022 13:21:52": {
-        "price": "$1.25",
-        "slot": "D7",
-        "productName": "Miss Vickie's Jalapeno"
-    }},
-    {"12/06/2022 19:56:07": {
-        "price": "$1.59",
-        "slot": "A3",
-        "productName": "Flamin' Hot Funyuns"
-    }},
-    {"12/06/2022 20:29:35": {
-        "price": "$1.29",
-        "slot": "A1",
-        "productName": "Crunchy Cheetos"
-    }},
-    {"12/06/2022 20:55:48": {
-        "price": "$1.80",
-        "slot": "B8",
-        "productName": "Planters Spicy Nuts & Cajun Sticks Trail Mix"
-    }},
-    {"12/08/2022 17:06:36": {
+    {"12/09/2022 11:51:03": {
         "price": "$1.65",
         "slot": "C1",
         "productName": "Baby Ruth"
+    }},
+    {"12/09/2022 11:51:11": {
+        "price": "$2.10",
+        "slot": "E3",
+        "productName": "Chocolate Chip Clif Bar"
+    }},
+    {"12/09/2022 11:51:18": {
+        "price": "$2.10",
+        "slot": "E3",
+        "productName": "Chocolate Chip Clif Bar"
+    }},
+    {"12/09/2022 11:51:25": {
+        "price": "$1.45",
+        "slot": "C2",
+        "productName": "Starburst Original"
+    }},
+    {"12/09/2022 11:52:23": {
+        "price": "$1.65",
+        "slot": "C1",
+        "productName": "Baby Ruth"
+    }},
+    {"12/09/2022 11:52:30": {
+        "price": "$1.65",
+        "slot": "C1",
+        "productName": "Baby Ruth"
+    }},
+    {"12/09/2022 11:52:36": {
+        "price": "$2.10",
+        "slot": "E3",
+        "productName": "Chocolate Chip Clif Bar"
+    }},
+    {"12/09/2022 11:52:42": {
+        "price": "$2.99",
+        "slot": "A1",
+        "productName": "Pretzels"
+    }},
+    {"12/09/2022 11:52:50": {
+        "price": "$1.65",
+        "slot": "C1",
+        "productName": "Baby Ruth"
+    }},
+    {"12/09/2022 12:42:36": {
+        "price": "$1.99",
+        "slot": "E1",
+        "productName": "Frosted Flakes"
+    }},
+    {"12/09/2022 12:42:50": {
+        "price": "$1.65",
+        "slot": "C1",
+        "productName": "Baby Ruth"
+    }},
+    {"12/09/2022 12:45:23": {
+        "price": "$1.99",
+        "slot": "E1",
+        "productName": "Frosted Flakes"
+    }},
+    {"12/09/2022 12:45:32": {
+        "price": "$1.45",
+        "slot": "C2",
+        "productName": "Starburst Original"
+    }},
+    {"12/09/2022 12:45:41": {
+        "price": "$1.45",
+        "slot": "C2",
+        "productName": "Starburst Original"
+    }},
+    {"12/09/2022 12:45:46": {
+        "price": "$1.45",
+        "slot": "C2",
+        "productName": "Starburst Original"
+    }},
+    {"12/09/2022 12:46:07": {
+        "price": "$2.10",
+        "slot": "E3",
+        "productName": "Chocolate Chip Clif Bar"
+    }},
+    {"12/09/2022 12:48:37": {
+        "price": "$1.25",
+        "slot": "D3",
+        "productName": "Skinny Pop Popcorn"
     }}
 ]
