@@ -3,13 +3,34 @@ import MainFunctions.*;
 import java.util.*;
 
 class Main {
+    public static void clearConsole() {
+        //System.out.print("\033\143");
+        final String os = System.getProperty("os.name");
+        if (os.contains("Windows")) {
+            try {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();                
+            }
+            catch (Exception e) {
+                // TODO: handle exception
+            }
+        }
+        else {
+            try {
+                Runtime.getRuntime().exec("clear");    
+            }
+            catch (Exception e) {
+                // TODO: handle exception
+            }
+        }            
+    }
+    
     public static void main(String args[]) throws Exception {
-        
         Scanner input = new Scanner(System.in);
         String choice = "";
         String customerActive = "";
 
         while (!choice.equals("3") || !choice.equalsIgnoreCase("Exit")){
+            clearConsole();
             System.out.println("+----------------------------------------------+");
             System.out.println("|           Five GUIS Vending Machine          |");
             System.out.println("|----------------------------------------------|");
