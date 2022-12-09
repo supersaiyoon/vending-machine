@@ -14,8 +14,6 @@ public class VendingMachineFile {
     public JSONObject addressObj;           // Use methods on this to modify vending machine address info.
     public JSONObject slotObj;              // Use methods on this to modify vending machine slot.
 
-    public VendingMachineFile() {};
-
     public VendingMachineFile(String vendingMachineName) {
         String fileName = "VendingMachineFile.json";
         InputStream is = VendingMachineFile.class.getResourceAsStream(fileName);
