@@ -12,6 +12,8 @@ public class VendingMachineFile {
     public JSONObject addressObj;           // Use methods on this to modify vending machine address info.
     public JSONObject slotObj;              // Use methods on this to modify vending machine slot.
 
+    public JSONObject activeObj;
+
     public VendingMachineFile(String vendingMachineName) {
         String fileName = "MainFunctions/VendingMachineFile.json";
 
@@ -49,6 +51,14 @@ public class VendingMachineFile {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setActive(){
+            vendingMachineObj.put("active", "1");
+    }
+
+    public void setInActive(){
+        vendingMachineObj.put("active", "0");
     }
 
     public String getAddress() {

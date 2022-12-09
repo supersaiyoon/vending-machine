@@ -169,7 +169,7 @@ public class Restocker {
 
         //menu loop
         while (true) {
-            clearConsole();
+            //clearConsole();
             System.out.println("Restocker Interface Main Menu\n");
             System.out.println("\t[1] Check expired items\n");
             System.out.println("\t[2] Check if item quantities are full\n");
@@ -212,7 +212,7 @@ public class Restocker {
                             System.out.println("Returning to Main Menu... \n");
                             break;
                         default:
-                            System.out.println("\nERROR: Unaccepted input, please insert [1] or [2].");
+                            System.out.println("\nERROR: Unaccepted input, please insert [1] or [2]. Returning to main menu...\n");
                             break;
                     }
                     break;
@@ -359,9 +359,20 @@ public class Restocker {
                             vendingMachineSacramento.setSlotPrice(slot, price);
 
                             //set new exp date
-                            System.out.println("Expiration date (mmYY) ?");
-                            String date = Input3.nextLine();
-                            vendingMachineSacramento.setSlotExpDate(slot, date);
+                            System.out.println("Expiration date (mm/YY) ?");
+                            while(!Input3.hasNext("\\d\\d/\\d\\d")){
+
+                                System.out.println("ERROR: Unaccepted input, please follow MM/YY format: ");
+                                Input3.next();
+                            }
+                            String expDate = Input3.next();
+
+                            String[] tempArr = expDate.split("/");
+                            String month = tempArr[0];
+                            String year = tempArr[1];
+                            expDate = month + year;
+
+                            vendingMachineSacramento.setSlotExpDate(slot, expDate);
 
                             //reset quantity
                             vendingMachineSacramento.setSlotQty(slot, 15);
@@ -376,7 +387,7 @@ public class Restocker {
 
                         //input error handler
                         default :
-                            System.out.println("\nERROR: Unaccepted input, please press [1] or [2].\n");
+                            System.out.println("\nERROR: Unaccepted input, please press [1] or [2]. Returning to main menu...\n");
                             break;
                     }
                     break;

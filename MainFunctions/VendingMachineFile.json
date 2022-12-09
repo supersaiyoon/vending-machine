@@ -10,9 +10,9 @@
         "active": "0",
         "slot": {
             "E1": {
-                "quantity": 13,
-                "price": 1.99,
-                "productName": "Frosted Flakes",
+                "quantity": 15,
+                "price": 2,
+                "productName": "Fritos",
                 "expDate": "1223"
             },
             "E2": {
@@ -46,10 +46,10 @@
                 "expDate": "0223"
             },
             "A1": {
-                "quantity": 12,
+                "quantity": 15,
                 "price": 1,
-                "productName": "Test",
-                "expDate": "1"
+                "productName": "Frito",
+                "expDate": "1223"
             },
             "C3": {
                 "quantity": 15,
