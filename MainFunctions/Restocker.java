@@ -126,7 +126,24 @@ public class Restocker {
     }
 
     public static void clearConsole() {
-        System.out.print("\033\143");
+        //System.out.print("\033\143");
+        final String os = System.getProperty("os.name");
+        if (os.contains("Windows")) {
+            try {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();                
+            }
+            catch (Exception e) {
+                // TODO: handle exception
+            }
+        }
+        else {
+            try {
+                Runtime.getRuntime().exec("clear");    
+            }
+            catch (Exception e) {
+                // TODO: handle exception
+            }
+        }            
     }
 
     public static void pressContinue() {

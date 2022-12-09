@@ -22,7 +22,7 @@ public class Customer {
             while ( itemPrice > moneyInsert) {
 
                 System.out.println();
-                System.out.println("ERROR: Not enough money inserted, please insert at least $" + df.format(moneyDifference) + " more.");
+                System.out.println("ERROR: Not enough money inserted, please insert at least " + df.format(moneyDifference) + " more.");
                 moneyInsert = additionalChange(moneyInsert);
                 moneyDifference = itemPrice - moneyInsert;
 
