@@ -150,7 +150,7 @@ public class DataManagementTool {
                 while(!scannerObj.hasNext("\\d\\d/\\d\\d")){
 
                     System.out.println("ERROR: Unaccepted input, please follow MM/YY format: ");
-                    scannerObj.next();
+                    scannerObj.nextLine();
                 }
                 String expDate = scannerObj.nextLine();
 
