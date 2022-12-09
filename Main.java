@@ -4,7 +4,6 @@ import java.util.*;
 
 class Main {
     public static void clearConsole() {
-        //System.out.print("\033\143");
         final String os = System.getProperty("os.name");
         if (os.contains("Windows")) {
             try {
@@ -29,6 +28,7 @@ class Main {
         String choice = "";
         String customerActive = "";
 
+        clearConsole();
         while (!choice.equals("3") || !choice.equalsIgnoreCase("Exit")){
             clearConsole();
             System.out.println("+----------------------------------------------+");

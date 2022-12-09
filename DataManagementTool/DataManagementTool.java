@@ -33,7 +33,6 @@ public class DataManagementTool {
     public static Scanner scannerObj = new Scanner(System.in);
 
     public static void clearConsole() {
-        //System.out.print("\033\143");
         final String os = System.getProperty("os.name");
         if (os.contains("Windows")) {
             try {
@@ -170,6 +169,7 @@ public class DataManagementTool {
                 
                 System.out.print("Do you have more instructions to add (Y/N)? ");
                 menuChoice = scannerObj.nextLine();
+
             }
             while (menuChoice.equals("y".toLowerCase()));
 

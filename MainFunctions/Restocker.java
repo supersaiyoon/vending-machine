@@ -129,7 +129,6 @@ public class Restocker {
     }
 
     public static void clearConsole() {
-        //System.out.print("\033\143");
         final String os = System.getProperty("os.name");
         if (os.contains("Windows")) {
             try {
@@ -169,7 +168,7 @@ public class Restocker {
 
         //menu loop
         while (true) {
-            //clearConsole();
+            clearConsole();
             System.out.println("Restocker Interface Main Menu\n");
             System.out.println("\t[1] Check expired items\n");
             System.out.println("\t[2] Check if item quantities are full\n");
