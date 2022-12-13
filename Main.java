@@ -15,7 +15,7 @@ class Main {
         }
         else {
             try {
-                Runtime.getRuntime().exec("clear");
+                Runtime.getRuntime();
             }
             catch (Exception e) {
                 // TODO: handle exception

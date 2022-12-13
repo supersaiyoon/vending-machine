@@ -7,15 +7,14 @@
 
   * Java Development Kit 19 (JDK 19) must be installed on a Windows PC.
 
-  * Please visit [Oracle's website](https://www.oracle.com/java/technologies/downloads/#jdk19-windows) to download JDK 19 if it's not installed on your PC.
+  * Please visit Oracle's website to download JDK 19 if it's not installed on your PC:
+    https://www.oracle.com/java/technologies/downloads/#jdk19-windows
 
 ## Known Bugs and Disclaimers
 
-  * In the Data Management Tool, selecting option 2 ("Check vending machine inventory") and inputting a non-integer crashes the program.
-
   * "Thank you" message pops up after customer inputs invalid slot number.
 
-## Known Missing "Release-9" Features
+## Known Missing "Release-10" Features
 
   * Restocker interface does not have a GUI. It's a command-line interface instead.
 
