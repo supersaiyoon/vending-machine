@@ -310,23 +310,20 @@ public class DataManagementTool {
         System.out.print("> ");
         String userChoice = getInput();
 
+        switch (userChoice) {
+            case "1":
+                viewSaleDataSacramento();
+                break;
+            case "2":
+                viewSaleDataFolsom();
+                break;
+            default:
+                System.out.println("\nERROR: Unaccepted input.");
+                pressContinue();
+        }
 
-            switch (userChoice) {
-                case "1":
-                    viewSaleDataSacramento();
-                    break;
-                case "2":
-                    viewSaleDataFolsom();
-                    break;
-                default:
-                    System.out.println("\nERROR: Unaccepted input.\n");
-            }    
-
-    }
+}   
         
-
-
-
     public static String getInput() {
         String input = scannerObj.nextLine();
 
@@ -361,7 +358,8 @@ public class DataManagementTool {
                 case "4":
                     exitProgram();
                 default:
-                    System.out.println("\nERROR: Unaccepted input\n");
+                    System.out.println("\nERROR: Unaccepted input");
+                    pressContinue();
             }
         }
         while (userInput != "4");
