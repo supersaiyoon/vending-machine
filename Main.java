@@ -15,7 +15,7 @@ class Main {
         }
         else {
             try {
-                Runtime.getRuntime().exec("clear");    
+                Runtime.getRuntime().exec("clear");
             }
             catch (Exception e) {
                 // TODO: handle exception
@@ -71,7 +71,8 @@ class Main {
             }
             
             else{
-                System.out.println("Not a valid option. Please reenter.\n");
+                System.out.println("Not a valid option. Please re-enter.\n");
+                input.nextLine();
             }
         }
     }
