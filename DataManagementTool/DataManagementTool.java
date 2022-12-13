@@ -44,7 +44,7 @@ public class DataManagementTool {
         }
         else {
             try {
-                Runtime.getRuntime().exec("clear");    
+                Runtime.getRuntime();
             }
             catch (Exception e) {
                 // TODO: handle exception
@@ -203,18 +203,28 @@ public class DataManagementTool {
     }
 
     public static void checkInventory() {
-        printMachineList();
-        System.out.print("> ");
-
         int userChoice = 0;
         while (true) {
+            clearConsole();
+            printMachineList();
+            System.out.print("> ");
+
             try {
                 userChoice = Integer.parseInt(getInput());
-                break; // will only get to here if input was an int
-            } catch (NumberFormatException ignore) {
-                System.out.println("ERROR: Invalid input, please enter valid input: ");
+
+                if (userChoice > 2 || userChoice < 1) {
+                    System.out.println("\nERROR: Invalid input. Please enter a valid option.");
+                    pressContinue();
+                    continue;
+                }
+                break;  // Will only get to here if input was an int.
+            }
+            catch (NumberFormatException ignore) {
+                System.out.println("\nERROR: Invalid input. Please enter a valid option.");
+                pressContinue();
             }
         }
+
         String machineName = "vendingMachine_" + machineNames[userChoice - 1];
 
         VendingMachineFile file = new VendingMachineFile(machineName);
@@ -318,7 +328,7 @@ public class DataManagementTool {
                 viewSaleDataFolsom();
                 break;
             default:
-                System.out.println("\nERROR: Unaccepted input.");
+                System.out.println("\nERROR: Invalid input. Please enter a valid option.");
                 pressContinue();
         }
 
