@@ -53,17 +53,13 @@ class Main {
             System.out.print("Make a selection: ");
             choice = input.nextLine();
 
-            boolean loop = true;
-
-            do {
-
-                if (choice.equals("1")  && file.getActive() == 1) {//Customer
+            if (choice.equals("1")  && file.getActive() == 1) {//Customer
                     System.out.println("Opening Customer Interface...\n");
                     customerActive = "active";
                     new KeyPadGUI();
                     while (customerActive.equals("active")) ;//keeps program from opening infinite KeyPadGUI
 
-                } else if (choice.equals("2") || choice.equalsIgnoreCase("Restocker")) {//Restocker
+            } else if (choice.equals("2") || choice.equalsIgnoreCase("Restocker")) {//Restocker
 
                     file.setInActive();
                     System.out.println("Opening Restocker Interface...\n");
@@ -71,18 +67,18 @@ class Main {
                     Restocker.main(args);
                     System.out.println("Closing Restocker Interface...\n");
                     file.setActive();
-                } else if (choice.equals("3") || choice.equalsIgnoreCase("Exit")) {//exit
+            } else if (choice.equals("3") || choice.equalsIgnoreCase("Exit")) {//exit
+
                     System.out.println("Closing machine...\n");
                     System.out.println("Have a nice day!");
                     input.close();
-                    loop = false;
-                    file.setActive();
                     System.exit(0);
-                } else {
+
+            } else {
+
                     System.out.println("Not a valid option. Please re-enter.\n");
                     input.nextLine();
                 }
-            }while(loop);
         }
     }
 }
