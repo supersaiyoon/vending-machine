@@ -7,7 +7,7 @@
             "street": "6000 J St",
             "state": "CA"
         },
-        "active": "0",
+        "active": {"flag": 1},
         "slot": {
             "E1": {
                 "quantity": 15,
@@ -46,7 +46,7 @@
                 "expDate": "0223"
             },
             "A1": {
-                "quantity": 15,
+                "quantity": 14,
                 "price": 1,
                 "productName": "Frito",
                 "expDate": "1223"

@@ -19,7 +19,8 @@ public class DataManagementTool {
         "\t[1] View sale data\n",
         "\t[2] Check vending machine inventory\n",
         "\t[3] Send restocking instructions\n",
-        "\t[4] EXIT\n"
+        "\t[4] View machine status\n",
+        "\t[5] EXIT\n"
     };
 
     public static String machineNames[] = {
@@ -229,6 +230,7 @@ public class DataManagementTool {
 
         VendingMachineFile file = new VendingMachineFile(machineName);
 
+
         // Determine longest product name to get width of name column.
         JSONObject slotObj = file.slotObj;
         Iterator<String> keys = slotObj.keys();
@@ -255,6 +257,8 @@ public class DataManagementTool {
         String line = "-------------------------------------------------------------------------";
 
         System.out.println("Checking inventory in " + machineNames[userChoice - 1] + "...");
+
+        System.out.println(file.getAddress());
 
         // Print column titles
         System.out.println(line);
@@ -332,7 +336,44 @@ public class DataManagementTool {
                 pressContinue();
         }
 
-}   
+    }
+
+    public static void viewActive() throws Exception{
+
+        VendingMachineFile file = new VendingMachineFile("vendingMachine_Sacramento");
+        printMachineList();
+
+        System.out.println("> ");
+        String userChoice = getInput();
+
+        switch (userChoice){
+
+            case "1":
+
+                System.out.println("Viewing live status of Sacramento vending machine: ");
+
+                if(file.getActive() ==1){
+                    System.out.println("\n        Status: Online\n");
+
+                }
+                else{
+                    System.out.println("\n        Status: Offline for Restocking\n");
+
+                }
+                pressContinue();
+                break;
+
+            case "2":
+                System.out.println("Viewing live status of Folsom vending machine: ");
+                System.out.println("\n        Status: Offline, under construction.\n");
+
+                pressContinue();
+                break;
+
+
+        }
+
+    }
         
     public static String getInput() {
         String input = scannerObj.nextLine();
@@ -366,13 +407,17 @@ public class DataManagementTool {
                     sendRestockingInstructions();
                     break;
                 case "4":
+                    viewActive();
+                    break;
+                case "5":
                     exitProgram();
+
                 default:
                     System.out.println("\nERROR: Unaccepted input");
                     pressContinue();
             }
         }
-        while (userInput != "4");
+        while (userInput != "5");
     }
 
     public static void main(String[] args) throws Exception {
