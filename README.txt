@@ -35,4 +35,12 @@ This is the vending machine software created by our group, Team Five GUIs. The g
 
   3. Execute VendingMachine.bat to open the Restocker/Customer part of the software.
 
+	3.1 Enter 1 for the customer keypad.
+
+	3.2 Enter 2 for the restocker interface.
+
   4. Execute DataManagementTool.bat to open the Data Management Tool to be used by corporate.
+
+  5. All slot numbers are a combination of one letter (A through E) and one number (1 through 8). For example, slot number B7 exists, but slot F2 does not.
+
+NOTE: There is a backup of software labeled "vending-machine-backup.zip" Please use this if the software from the original ZIP file does not work.
