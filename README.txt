@@ -14,6 +14,8 @@ This is the vending machine software created by our group, Team Five GUIs. The g
 ## Known Bugs and Disclaimers
 
   * "Thank you" message pops up after customer inputs invalid slot number.
+  
+  * In the data management tool, the user is able to view a vending machine's online status. When the restocker is using the vending machine, the status of the vending machine will be changed to "offline." If the restocker closes the interface without properly exiting, the offline status will not be updated. The menu will notify the user that the restocker interface needs to be exited properly in order to unlock access to the customer keypad.
 
 ## Known Missing "Release-10" Features
 
