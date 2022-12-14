@@ -259,6 +259,7 @@
             "street": "10 College Pkwy",
             "state": "CA"
         },
+        "active": {"flag": 1},
         "slot": {
             "E1": {
                 "quantity": 15,
