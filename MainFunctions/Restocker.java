@@ -160,6 +160,8 @@ public class Restocker {
         VendingMachineFile vendingMachineSacramento = new VendingMachineFile("vendingMachine_Sacramento");
         DataManagementTool inputHandler = new DataManagementTool();
 
+        vendingMachineSacramento.setInActive();
+
         Scanner input = new Scanner(System.in);
         Scanner Input2 = new Scanner(System.in);
         Scanner Input3 = new Scanner(System.in);
@@ -394,6 +396,7 @@ public class Restocker {
                 //Exit restocker interface entirely
                 case "5":
                     System.out.println("Exiting Restocker Interface...");
+                    vendingMachineSacramento.setActive();
                     input.close();
                     Input2.close();
                     Input3.close();

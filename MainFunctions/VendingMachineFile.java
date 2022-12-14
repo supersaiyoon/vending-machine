@@ -40,6 +40,7 @@ public class VendingMachineFile {
         vendingMachineObj = tokenObj.getJSONObject(vendingMachineName);
         addressObj = vendingMachineObj.getJSONObject("address");
         slotObj = vendingMachineObj.getJSONObject("slot");
+        activeObj = vendingMachineObj.getJSONObject("active");
     }
 
     // Call this method every time you replace any values in VendingMachineFile.json.
@@ -53,12 +54,25 @@ public class VendingMachineFile {
         }
     }
 
+    public int getActive(){
+
+        return activeObj.getInt("flag");
+    }
+
     public void setActive(){
-            vendingMachineObj.put("active", "1");
+
+        int flag = 1;
+        activeObj.put("flag", flag);
+        writeFile();
+
     }
 
     public void setInActive(){
-        vendingMachineObj.put("active", "0");
+
+        int flag = 0;
+        activeObj.put("flag", flag);
+        writeFile();
+
     }
 
     public String getAddress() {
