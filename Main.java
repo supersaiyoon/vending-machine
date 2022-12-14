@@ -40,7 +40,15 @@ class Main {
             System.out.println("|  [1] Customer                                |");
             System.out.println("|  [2] Restocker                               |");
             System.out.println("|  [3] Exit                                    |");
-            System.out.println("+----------------------------------------------+");
+            System.out.println("|                                              |");
+            if(file.getActive() == 0) {
+                System.out.println("|  NOTE: Customer interface currently inactive |");
+                System.out.println("|        please correctly close restocker tool |");
+                System.out.println("+----------------------------------------------+");
+
+            }
+            else
+                System.out.println("+----------------------------------------------+");
 
             System.out.print("Make a selection: ");
             choice = input.nextLine();
@@ -49,7 +57,7 @@ class Main {
 
             do {
 
-                if (choice.equals("1") || choice.equalsIgnoreCase("Customer") && file.getActive() == 1) {//Customer
+                if (choice.equals("1")  && file.getActive() == 1) {//Customer
                     System.out.println("Opening Customer Interface...\n");
                     customerActive = "active";
                     new KeyPadGUI();
@@ -68,6 +76,7 @@ class Main {
                     System.out.println("Have a nice day!");
                     input.close();
                     loop = false;
+                    file.setActive();
                     System.exit(0);
                 } else {
                     System.out.println("Not a valid option. Please re-enter.\n");
