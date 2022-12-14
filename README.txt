@@ -2,6 +2,7 @@
 # Group project for CSC 131
 # Aaron Soliz, Brennan Moran, Brian Yoon, Sean Agarrado, Subhan Mehmood
 
+This is the vending machine software created by our group, Team Five GUIs. The goal was to design, develop, and deliver a software product that upgraded the current capabilities of the customer's vending machines. The customer also requested a stand-alone data management tool that enabled the customer to view sale data and other information in real time. The vending machine and data management tool programs were designed to have the capability to run simultaneously.
 
 ## Installation
 
@@ -24,7 +25,7 @@
 
   * Data Management Tool is unable to view custom notes made by the restocker.
 
-# Execution Instructions
+## Execution Instructions
 
   1. Extract TeamFiveGUIsProject.zip.
 
